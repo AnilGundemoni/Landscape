@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GreenScape – Professional landscaping, garden design, lawn maintenance and snow removal. Book your service today.">
+  <title>GreenScape – Professional Landscaping Services</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+</head>
+<body>
+
+<!-- ══ NAVBAR ══════════════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">🌿 Green<span>Scape</span></a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+
+  <div class="nav-auth">
+    <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode">🌙</button>
+    <a href="login.html" class="btn-nav-outline">Login</a>
+    <a href="booking.html" class="btn-nav-solid">Book Now</a>
+  </div>
+
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══ HERO ════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-content fade-up">
+    <div class="hero-tag">⭐ Rated #1 Landscaping in the Region</div>
+    <h1>Transform Your Outdoor<br><em data-typed="Living Space|Garden Design|Lawn Paradise">Living Space</em></h1>
+    <p>Professional landscaping, garden design &amp; year-round lawn care that turns your property into a masterpiece.</p>
+    <div class="hero-btns">
+      <a href="booking.html" class="btn btn-primary">📅 Book a Service</a>
+      <a href="gallery.html" class="btn btn-white">View Our Work →</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat"><strong data-target="2400" data-suffix="+">2,400+</strong><span>Projects Completed</span></div>
+    <div class="hero-stat"><strong data-target="18" data-suffix=" yrs">18 yrs</strong><span>Experience</span></div>
+    <div class="hero-stat"><strong data-target="99" data-suffix="%">99%</strong><span>Client Satisfaction</span></div>
+    <div class="hero-stat"><strong data-target="50" data-suffix="+">50+</strong><span>Crew Members</span></div>
+  </div>
+</section>
+
+<!-- ══ SERVICES ════════════════════════════════════════════ -->
+<section class="section section-alt" id="services">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Our Landscaping Services</h2>
+      <p class="section-sub">From regular maintenance to full transformations — we handle every aspect of your outdoor environment.</p>
+    </div>
+
+    <div class="cards-grid">
+      <div class="card fade-up stagger-1">
+        <div class="card-img-wrap">
+          <img class="card-img" src="../assets/images/gallery1.jpg" alt="Lawn Maintenance">
+        </div>
+        <div class="card-body">
+          <div class="card-icon">🌿</div>
+          <h3>Lawn Maintenance</h3>
+          <p>Keep your lawn perfectly manicured all season. Our crews handle weekly mowing, precision edging, fertilization and seasonal treatments for a consistently lush, green result.</p>
+          <a href="service-details.html" class="card-link">Learn more →</a>
+        </div>
+      </div>
+
+      <div class="card fade-up stagger-2">
+        <div class="card-img-wrap">
+          <img class="card-img" src="../assets/images/landscaping.jpg" alt="Landscape Design">
+        </div>
+        <div class="card-body">
+          <div class="card-icon">🌳</div>
+          <h3>Landscape Design</h3>
+          <p>From concept to completion, we design and install stunning outdoor spaces — lush plant beds, mature trees, decorative borders and lawn sculpting tailored to your property.</p>
+          <a href="service-details.html" class="card-link">Learn more →</a>
+        </div>
+      </div>
+
+      <div class="card fade-up stagger-3">
+        <div class="card-img-wrap">
+          <img class="card-img" src="https://plus.unsplash.com/premium_photo-1742479221415-1d1424fb6451?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjEzfHxzbm93JTIwcmVtb3ZhbHxlbnwwfHwwfHx8MA%3D%3D" alt="Snow Removal">
+        </div>
+        <div class="card-body">
+          <div class="card-icon">❄️</div>
+          <h3>Snow Removal</h3>
+          <p>Available 24/7 throughout winter, our rapid-response crews clear driveways, walkways and parking lots — plowing, salting and ice management so your property stays safe.</p>
+          <a href="service-details.html" class="card-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:36px">
+      <a href="services.html" class="btn btn-outline">View All Services</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WHY CHOOSE US ═══════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Why GreenScape</span>
+      <h2 class="section-title">The GreenScape Difference</h2>
+      <p class="section-sub">We combine expert craftsmanship with genuine care for your property and the environment.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-item fade-up">
+        <span class="fi-icon">🏆</span>
+        <h4>Award-Winning Team</h4>
+        <p>Certified horticulturalists and landscape architects with decades of combined experience.</p>
+      </div>
+      <div class="feature-item fade-up">
+        <span class="fi-icon">⚡</span>
+        <h4>Fast Response</h4>
+        <p>Same-day quotes and next-day booking availability. Emergency services 24/7.</p>
+      </div>
+      <div class="feature-item fade-up">
+        <span class="fi-icon">🌱</span>
+        <h4>Eco-Friendly</h4>
+        <p>Organic treatments, water-wise designs, and sustainable practices in every project.</p>
+      </div>
+      <div class="feature-item fade-up">
+        <span class="fi-icon">🔒</span>
+        <h4>Fully Insured</h4>
+        <p>$5M liability coverage and workers' compensation so you're protected on every job.</p>
+      </div>
+      <div class="feature-item fade-up">
+        <span class="fi-icon">💰</span>
+        <h4>Transparent Pricing</h4>
+        <p>No hidden fees, ever. Free estimates and clear itemized quotes before we start.</p>
+      </div>
+      <div class="feature-item fade-up">
+        <span class="fi-icon">⭐</span>
+        <h4>Satisfaction Guaranteed</h4>
+        <p>Not happy? We'll return within 48 hours to fix it — free of charge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY PREVIEW ═════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">Our Recent Work</h2>
+      <p class="section-sub">A glimpse of the transformations we've made for homeowners and businesses across the region.</p>
+    </div>
+
+    <div class="gallery-grid fade-up">
+      <div class="gallery-item ">
+        <img src="data:image/jpeg;base64,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" alt="Lush Garden">
+        <div class="gallery-overlay"><span>🔍</span></div>
+      </div>
+      <div class="gallery-item g-tall">
+        <img src="../assets/images/gallery.jpg" alt="Lawn">
+        <div class="gallery-overlay"><span>🔍</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/images/gardendesign.jpg" alt="Garden Design">
+        <div class="gallery-overlay"><span>🔍</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1773826594849-a08a4ab8860b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTZ8fHNub3clMjByZW1vdmFsfGVufDB8fDB8fHww" alt="Patio">
+        <div class="gallery-overlay"><span>🔍</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="../assets/images/gallery4.jpg" alt="Trees">
+        <div class="gallery-overlay"><span>🔍</span></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxGkyd9_sF5-yeno_npNSQ915H8eSx1gtXEg&s" alt="Trees">
+        <div class="gallery-overlay"><span>🔍</span></div>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:32px">
+      <a href="gallery.html" class="btn btn-outline">View Full Gallery</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Reviews</span>
+      <h2 class="section-title">What Our Clients Say</h2>
+      <p class="section-sub">Over 2,000 happy homeowners trust GreenScape year after year.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testi-card fade-up">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"GreenScape completely transformed our backyard into a paradise. The team was professional, on time and the results exceeded every expectation!"</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://i.pravatar.cc/80?img=1" alt="Sarah M.">
+          <div><div class="testi-name">Sarah Mitchell</div><div class="testi-role">Homeowner, Austin TX</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card fade-up">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"The snow removal service was a lifesaver this winter. Always there before 6am, driveway spotless. Worth every penny — highly recommend!"</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://i.pravatar.cc/80?img=11" alt="David K.">
+          <div><div class="testi-name">David Kowalski</div><div class="testi-role">Business Owner</div></div>
+        </div>
+      </div>
+
+      <div class="testi-card fade-up">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">"From the initial design consultation to the final planting, every detail was handled perfectly. Our garden has never looked better!"</p>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://i.pravatar.cc/80?img=5" alt="Emily R.">
+          <div><div class="testi-name">Emily Rodriguez</div><div class="testi-role">Homeowner, Denver CO</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:32px">
+      <a href="testimonials.html" class="btn btn-outline">Read All Reviews</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA BANNER ══════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="cta-banner fade-up">
+      <h2>Ready to Transform Your Property?</h2>
+      <p>Get a free, no-obligation quote within 24 hours. Our experts are standing by.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="booking.html" class="btn btn-primary">📅 Book a Free Assessment</a>
+        <a href="service-calculator.html" class="btn btn-white">💰 Get Instant Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BLOG PREVIEW ════════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Tips &amp; Insights</span>
+      <h2 class="section-title">From the GreenScape Blog</h2>
+      <p class="section-sub">Expert advice to keep your garden and lawn thriving through every season.</p>
+    </div>
+
+    <div class="blog-grid">
+      <div class="blog-card fade-up">
+        <img class="blog-card-img" src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="Spring Lawn Care">
+        <div class="blog-card-body">
+          <span class="blog-tag">Lawn Care</span>
+          <h3>5 Essential Spring Lawn Care Tips for a Lush Summer</h3>
+          <p>Start the season right with these pro-level maintenance steps to feed, aerate and revive your lawn.</p>
+          <div class="blog-meta">
+            <img src="https://i.pravatar.cc/40?img=3" alt="Author">
+            <span>James Porter</span>
+            <span>·</span>
+            <span>Mar 5, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up">
+        <img class="blog-card-img" src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=600&q=80" alt="Garden Design">
+        <div class="blog-card-body">
+          <span class="blog-tag">Design</span>
+          <h3>How to Plan a Low-Maintenance Perennial Garden</h3>
+          <p>Choose the right plants, layout your beds smartly, and enjoy colour all season without constant work.</p>
+          <div class="blog-meta">
+            <img src="https://i.pravatar.cc/40?img=9" alt="Author">
+            <span>Alice Nguyen</span>
+            <span>·</span>
+            <span>Feb 20, 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up">
+        <img class="blog-card-img" src="https://images.unsplash.com/photo-1549298222-1c31e8915347?w=600&q=80" alt="Water Saving">
+        <div class="blog-card-body">
+          <span class="blog-tag">Eco Tips</span>
+          <h3>Smart Irrigation: Save 40% Water Without Sacrificing Beauty</h3>
+          <p>Modern drip systems and smart controllers can massively cut your water bill while keeping plants healthy.</p>
+          <div class="blog-meta">
+            <img src="https://i.pravatar.cc/40?img=12" alt="Author">
+            <span>Mark Davis</span>
+            <span>·</span>
+            <span>Feb 8, 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top:32px">
+      <a href="blog.html" class="btn btn-outline">Read All Articles</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PAGE PREVIEWS (404 & Coming Soon) ══════════════════ -->
+<section class="section section-alt" id="page-previews">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Site Pages</span>
+      <h2 class="section-title">Special Pages</h2>
+      <p class="section-sub">Preview our custom error and launch pages without leaving this site.</p>
+    </div>
+    <div class="cards-grid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr));margin-top:32px">
+
+      <!-- 404 Preview Card -->
+      <div class="card fade-up" style="cursor:pointer" onclick="openPageModal('404.html','404 – Page Not Found')" role="button" tabindex="0" aria-label="Preview 404 page">
+        <div class="card-img-wrap" style="background:linear-gradient(135deg,#1a5c38,#3aa76d);height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          <div style="text-align:center;color:#fff;user-select:none">
+            <div style="font-family:var(--ff-head);font-size:72px;font-weight:800;line-height:1;opacity:.9">404</div>
+            <div style="font-size:14px;opacity:.7;margin-top:4px">Page Not Found</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>404 Error Page</h3>
+          <p>Custom branded error page shown when a visitor lands on a broken or missing URL — with quick navigation back.</p>
+          <span class="card-link">Preview Page →</span>
+        </div>
+      </div>
+
+      <!-- Coming Soon Preview Card -->
+      <!-- <div class="card fade-up" style="cursor:pointer" onclick="openPageModal('comingsoon.html','Coming Soon')" role="button" tabindex="0" aria-label="Preview Coming Soon page">
+        <div class="card-img-wrap" style="background:linear-gradient(135deg,#0d3d21,#2e8b57);height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden">
+          <div style="text-align:center;color:#fff;user-select:none">
+            <div style="font-size:48px;line-height:1">🌿</div>
+            <div style="font-family:var(--ff-head);font-size:22px;font-weight:800;margin-top:8px">Coming Soon</div>
+            <div style="font-size:13px;opacity:.7;margin-top:4px">Pre-launch &amp; maintenance</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3>Coming Soon Page</h3>
+          <p>Pre-launch or maintenance holding page with a live countdown timer, email subscription and social links.</p>
+          <span class="card-link">Preview Page →</span>
+        </div>
+      </div>
+
+    </div>
+  </div> -->
+</section>
+
+<!-- ══ PAGE PREVIEW MODAL ══════════════════════════════════ -->
+<div id="page-modal" style="display:none;position:fixed;inset:0;z-index:9000;align-items:center;justify-content:center" role="dialog" aria-modal="true" aria-labelledby="page-modal-title">
+  <!-- Backdrop -->
+  <div id="page-modal-backdrop" onclick="closePageModal()" style="position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(4px)"></div>
+  <!-- Panel -->
+  <div style="position:relative;z-index:1;width:min(1100px,96vw);height:min(88vh,780px);background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.4)">
+    <!-- Modal header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--clr-primary-dk);flex-shrink:0">
+      <span id="page-modal-title" style="font-family:var(--ff-head);font-weight:700;font-size:15px;color:#fff"></span>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a id="page-modal-open" href="#" target="_blank" style="font-family:var(--ff-head);font-size:12px;font-weight:600;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.3);padding:5px 12px;border-radius:6px;white-space:nowrap">Open in new tab ↗</a>
+        <button onclick="closePageModal()" aria-label="Close preview" style="background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center">&times;</button>
+      </div>
+    </div>
+    <!-- iframe -->
+    <iframe id="page-modal-frame" src="" title="Page preview" style="flex:1;border:none;width:100%"></iframe>
+  </div>
+</div>
+
+<script>
+function openPageModal(page, title) {
+  var modal  = document.getElementById('page-modal');
+  var frame  = document.getElementById('page-modal-frame');
+  var label  = document.getElementById('page-modal-title');
+  var link   = document.getElementById('page-modal-open');
+  frame.src  = page;
+  label.textContent = title;
+  link.href  = page;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closePageModal() {
+  var modal  = document.getElementById('page-modal');
+  var frame  = document.getElementById('page-modal-frame');
+  modal.style.display = 'none';
+  frame.src  = '';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closePageModal();
+});
+// Keyboard accessibility for cards
+document.querySelectorAll('#page-previews [role="button"]').forEach(function(el) {
+  el.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') el.click();
+  });
+});
+</script>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">🌿 Green<span>Scape</span></div>
+        <p>Dedicated to creating beautiful, sustainable outdoor spaces since 2006. Trusted by 2,400+ homeowners and businesses.</p>
+        <div class="footer-socials">
+          <a href="#" title="Facebook">📘</a>
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Twitter">🐦</a>
+          <a href="#" title="YouTube">▶️</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Lawn Maintenance</a></li>
+          <li><a href="services.html">Garden Design</a></li>
+          <li><a href="services.html">Tree Trimming</a></li>
+          <li><a href="services.html">Irrigation</a></li>
+          <li><a href="services.html">Snow Removal</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="testimonials.html">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-newsletter">
+        <h4>Newsletter</h4>
+        <p style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:14px">Seasonal tips, special offers and project inspiration — straight to your inbox.</p>
+        <input type="email" placeholder="Your email address">
+        <button class="btn btn-primary" style="width:100%;justify-content:center">Subscribe →</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 GreenScape Landscaping. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

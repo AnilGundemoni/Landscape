@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GreenScape project dashboard with user and admin operational views.">
+  <title>Dashboard | GreenScape</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    .dashboard-topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+    .role-switch {
+      display: inline-flex;
+      background: var(--clr-surface);
+      border: 1px solid var(--clr-border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .role-btn {
+      border: none;
+      background: transparent;
+      color: var(--clr-text-muted);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 9px 15px;
+      cursor: pointer;
+      font-family: var(--ff-head);
+    }
+    .role-btn.active {
+      background: var(--clr-primary);
+      color: #fff;
+    }
+    .dash-quick-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .dash-quick-actions .btn {
+      padding: 8px 14px;
+      font-size: 12px;
+    }
+    .dash-view {
+      display: none;
+    }
+    .dash-view.active {
+      display: block;
+    }
+    .dash-layout-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .dash-panel-body {
+      padding: 18px 22px;
+    }
+    .dash-mini-list {
+      display: grid;
+      gap: 10px;
+    }
+    .dash-mini-item {
+      border: 1px solid var(--clr-border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+    .dash-mini-item strong {
+      font-size: 13px;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .dash-mini-item span {
+      color: var(--clr-text-muted);
+      font-size: 12px;
+    }
+    .status-pill {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+    .status-confirmed { background: #d9f5e4; color: #16713e; }
+    .status-pending { background: #fff5d6; color: #8f6a00; }
+    .status-progress { background: #dbeafe; color: #1e4db3; }
+    .status-overdue { background: #fde2e2; color: #b52b2b; }
+    .status-complete { background: #e5f7eb; color: #1a7a45; }
+    .status-critical { background: #ffe9cc; color: #b85f00; }
+
+    .dash-table-wrap {
+      overflow-x: auto;
+    }
+    .dash-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+    .dash-table th,
+    .dash-table td {
+      text-align: left;
+      border-bottom: 1px solid var(--clr-border);
+      padding: 12px;
+      font-size: 13px;
+      vertical-align: middle;
+    }
+    .dash-table th {
+      color: var(--clr-text-muted);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+    .row-actions {
+      display: inline-flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .action-btn {
+      border: 1px solid var(--clr-border);
+      background: #fff;
+      color: var(--clr-text);
+      border-radius: 7px;
+      padding: 6px 9px;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .action-btn.primary {
+      background: var(--clr-primary);
+      color: #fff;
+      border-color: var(--clr-primary);
+    }
+    .activity-feed {
+      display: grid;
+      gap: 10px;
+    }
+    .activity-item {
+      border: 1px solid var(--clr-border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: var(--clr-surface);
+    }
+    .activity-item strong {
+      font-size: 13px;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .activity-item span {
+      font-size: 12px;
+      color: var(--clr-text-muted);
+    }
+    .chart-bars {
+      display: grid;
+      gap: 10px;
+    }
+    .chart-row {
+      display: grid;
+      grid-template-columns: 95px 1fr 48px;
+      gap: 8px;
+      align-items: center;
+      font-size: 12px;
+      color: var(--clr-text-muted);
+    }
+    .bar-track {
+      height: 8px;
+      background: #e8efea;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dk));
+      border-radius: 999px;
+    }
+    @media (max-width: 980px) {
+      .dashboard-layout {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: relative;
+        top: 0;
+        height: auto;
+      }
+      .dash-layout-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">Green<span>Scape</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+  </ul>
+  <div class="nav-auth">
+    <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+    <a href="login.html" class="btn-nav-outline">Login</a>
+    <a href="booking.html" class="btn-nav-solid">Book Now</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="dashboard-layout">
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <h3>GreenScape Ops</h3>
+      <span>Service management center</span>
+    </div>
+
+    <div class="sidebar-section">Main</div>
+    <nav class="sidebar-nav">
+      <a href="#" class="active"><span class="nav-icon">🏠</span> Overview</a>
+      <a href="#bookings"><span class="nav-icon">📅</span> Bookings</a>
+      <a href="#jobs"><span class="nav-icon">🚚</span> Active Jobs</a>
+      <a href="#billing"><span class="nav-icon">💳</span> Billing</a>
+      <a href="#messages"><span class="nav-icon">✉️</span> Messages</a>
+    </nav>
+
+    <div class="sidebar-section">Admin</div>
+    <nav class="sidebar-nav">
+      <a href="#crew"><span class="nav-icon">👷</span> Crew Schedule</a>
+      <a href="#inventory"><span class="nav-icon">📦</span> Inventory</a>
+      <a href="#reports"><span class="nav-icon">📊</span> Reports</a>
+      <a href="#settings"><span class="nav-icon">⚙️</span> Settings</a>
+    </nav>
+  </aside>
+
+  <main class="dashboard-main">
+    <header class="dashboard-topbar">
+      <div>
+        <h1 style="font-family:var(--ff-head);font-size:28px;line-height:1.15">Project Dashboard</h1>
+        <p style="color:var(--clr-text-muted);font-size:14px">Manage client bookings, crews, payments, and operations in one place.</p>
+      </div>
+      <div class="role-switch" aria-label="Switch dashboard role">
+        <button class="role-btn active" data-role="user" type="button">User Dashboard</button>
+        <button class="role-btn" data-role="admin" type="button">Admin Dashboard</button>
+      </div>
+    </header>
+
+    <section id="userView" class="dash-view active" aria-label="User dashboard view">
+      <div class="dash-quick-actions">
+        <a href="booking.html" class="btn btn-primary">+ New Booking</a>
+        <a href="service-calculator.html" class="btn btn-outline">Estimate Cost</a>
+      </div>
+
+      <div class="stats-grid" style="margin-top:18px">
+        <article class="stat-card"><div class="stat-icon green">📅</div><div id="uBookedCount" class="stat-value">4</div><div class="stat-label">Booked Services</div><div class="stat-change up">+1 this month</div></article>
+        <article class="stat-card"><div class="stat-icon blue">🚚</div><div id="uActiveCount" class="stat-value">2</div><div class="stat-label">Active Jobs</div><div class="stat-change up">On track</div></article>
+        <article class="stat-card"><div class="stat-icon gold">💳</div><div id="uPendingBill" class="stat-value">$420</div><div class="stat-label">Pending Billing</div><div class="stat-change down">Due in 4 days</div></article>
+        <article class="stat-card"><div class="stat-icon purple">⭐</div><div id="uLoyalty" class="stat-value">840</div><div class="stat-label">Loyalty Points</div><div class="stat-change up">+120 earned</div></article>
+      </div>
+
+      <div class="dash-layout-grid">
+        <section class="dash-panel" id="bookings">
+          <div class="dash-panel-header">
+            <h3>My Upcoming Bookings</h3>
+            <a href="booking.html" class="card-link">Book Another</a>
+          </div>
+          <div class="dash-panel-body dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Service</th>
+                  <th>Date</th>
+                  <th>Crew</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="userBookingRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="dash-panel" id="jobs">
+          <div class="dash-panel-header">
+            <h3>Live Job Progress</h3>
+          </div>
+          <div class="dash-panel-body">
+            <div id="userJobsList" class="dash-mini-list"></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="dash-layout-grid" style="grid-template-columns: 1fr 1fr;">
+        <section class="dash-panel" id="messages">
+          <div class="dash-panel-header"><h3>Recent Updates</h3></div>
+          <div class="dash-panel-body">
+            <div id="userActivityFeed" class="activity-feed"></div>
+          </div>
+        </section>
+
+        <section class="dash-panel" id="billing">
+          <div class="dash-panel-header"><h3>Billing Snapshot</h3></div>
+          <div class="dash-panel-body">
+            <div class="chart-bars">
+              <div class="chart-row"><span>Completed</span><div class="bar-track"><div class="bar-fill" style="width: 78%"></div></div><strong>78%</strong></div>
+              <div class="chart-row"><span>Upcoming</span><div class="bar-track"><div class="bar-fill" style="width: 46%"></div></div><strong>46%</strong></div>
+              <div class="chart-row"><span>Outstanding</span><div class="bar-track"><div class="bar-fill" style="width: 24%"></div></div><strong>24%</strong></div>
+            </div>
+            <p style="margin-top:12px;color:var(--clr-text-muted);font-size:13px">Auto-pay is currently enabled for recurring lawn maintenance.</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="adminView" class="dash-view" aria-label="Admin dashboard view">
+      <div class="dash-quick-actions">
+        <button id="createDispatchBtn" type="button" class="btn btn-primary">+ Create Dispatch</button>
+        <button id="syncReportBtn" type="button" class="btn btn-outline">Run Daily Report</button>
+      </div>
+
+      <div class="stats-grid" style="margin-top:18px">
+        <article class="stat-card"><div class="stat-icon blue">📥</div><div id="aNewRequests" class="stat-value">18</div><div class="stat-label">New Requests</div><div class="stat-change up">Today</div></article>
+        <article class="stat-card"><div class="stat-icon green">👷</div><div id="aCrewOnline" class="stat-value">11/13</div><div class="stat-label">Crew Online</div><div class="stat-change up">2 in transit</div></article>
+        <article class="stat-card"><div class="stat-icon gold">💰</div><div id="aRevenue" class="stat-value">$18.4k</div><div class="stat-label">Weekly Revenue</div><div class="stat-change up">+9.3%</div></article>
+        <article class="stat-card"><div class="stat-icon purple">⚠️</div><div id="aAlerts" class="stat-value">3</div><div class="stat-label">Operational Alerts</div><div class="stat-change down">Needs action</div></article>
+      </div>
+
+      <div class="dash-layout-grid">
+        <section class="dash-panel" id="crew">
+          <div class="dash-panel-header">
+            <h3>Dispatch Queue</h3>
+            <span style="font-size:12px;color:var(--clr-text-muted)">Updated live</span>
+          </div>
+          <div class="dash-panel-body dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Job #</th>
+                  <th>Client</th>
+                  <th>Service</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="adminDispatchRows"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="dash-panel" id="inventory">
+          <div class="dash-panel-header"><h3>Inventory + Equipment</h3></div>
+          <div class="dash-panel-body">
+            <div id="adminInventoryList" class="dash-mini-list"></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="dash-layout-grid" style="grid-template-columns: 1fr 1fr;">
+        <section class="dash-panel" id="reports">
+          <div class="dash-panel-header"><h3>Service Mix (This Week)</h3></div>
+          <div class="dash-panel-body">
+            <div class="chart-bars">
+              <div class="chart-row"><span>Lawn Maintenance</span><div class="bar-track"><div class="bar-fill" style="width: 64%"></div></div><strong>64%</strong></div>
+              <div class="chart-row"><span>Snow Removal</span><div class="bar-track"><div class="bar-fill" style="width: 52%"></div></div><strong>52%</strong></div>
+              <div class="chart-row"><span>Hardscaping</span><div class="bar-track"><div class="bar-fill" style="width: 28%"></div></div><strong>28%</strong></div>
+              <div class="chart-row"><span>Irrigation</span><div class="bar-track"><div class="bar-fill" style="width: 36%"></div></div><strong>36%</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="dash-panel" id="settings">
+          <div class="dash-panel-header"><h3>Ops Activity Feed</h3></div>
+          <div class="dash-panel-body">
+            <div id="adminActivityFeed" class="activity-feed"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/dashboard.js"></script>
+</body>
+</html>

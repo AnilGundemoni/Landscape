@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Professional lawn care and maintenance services by GreenScape. Licensed, insured, satisfaction guaranteed.">
+  <title>Lawn Care &amp; Maintenance | GreenScape Services</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    .svc-hero { position:relative;min-height:420px;display:flex;align-items:center;overflow:hidden }
+    .svc-hero-img { position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1400&q=80') center/cover;filter:brightness(.45) }
+    .svc-hero-content { position:relative;z-index:1;padding:80px 0 60px;color:#fff;max-width:680px }
+    .svc-tag { display:inline-block;background:var(--clr-accent);color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:var(--radius-full);text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px }
+    .svc-hero-content h1 { font-size:clamp(28px,5vw,48px);margin-bottom:16px }
+    .svc-hero-content p { font-size:17px;opacity:.9;line-height:1.7 }
+    .svc-hero-actions { display:flex;gap:14px;margin-top:28px;flex-wrap:wrap }
+    .svc-layout { display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start }
+    .svc-sidebar { position:sticky;top:90px;display:flex;flex-direction:column;gap:20px }
+    .svc-sidebar-card { background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-lg);overflow:hidden }
+    .svc-sidebar-card .card-head { background:var(--clr-primary);color:#fff;padding:16px 20px;font-family:var(--ff-head);font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.5px }
+    .svc-sidebar-card .card-body { padding:20px }
+    .process-steps { counter-reset:step;display:flex;flex-direction:column;gap:20px }
+    .process-step { display:flex;gap:16px;align-items:flex-start }
+    .step-num { flex-shrink:0;counter-increment:step;width:36px;height:36px;border-radius:50%;background:var(--clr-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px }
+    .step-num::before { content:counter(step) }
+    .step-body h4 { font-size:15px;font-weight:700;margin-bottom:6px }
+    .step-body p { font-size:13px;color:var(--clr-text-muted);line-height:1.6 }
+    .icon-list { display:flex;flex-direction:column;gap:10px }
+    .icon-list li { display:flex;align-items:center;gap:10px;font-size:14px }
+    .icon-list li::before { content:'';width:20px;height:20px;background:var(--clr-primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0 }
+    .service-image-grid { display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0 }
+    .service-image-grid img { border-radius:var(--radius-md);object-fit:cover;width:100%;height:200px }
+    @media(max-width:900px){.svc-layout{grid-template-columns:1fr}.svc-sidebar{position:static}}
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"><a href="index.html" class="logo"> Green<span>Scape</span></a><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li></ul><div class="nav-auth"><button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode">&#127769;</button><a href="login.html" class="btn-nav-outline">Login</a><a href="booking.html" class="btn-nav-solid">Book Now</a></div><button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button></nav>
+<div class="svc-hero">
+  <div class="svc-hero-img"></div>
+  <div class="container">
+    <div class="svc-hero-content fade-up">
+      <span class="svc-tag">Featured Service</span>
+      <h1>Lawn Care &amp; Maintenance</h1>
+      <p>Professional, consistent lawn care that keeps your property looking its best year-round. Our licensed team handles everything from mowing to fertilization.</p>
+      <div class="svc-hero-actions">
+        <a href="booking.html" class="btn btn-primary">Book This Service</a>
+        <a href="service-calculator.html" class="btn btn-white">Get Price Estimate</a>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="breadcrumb container" style="padding-top:20px;padding-bottom:4px" aria-label="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="services.html">Services</a><span class="sep">/</span><span>Lawn Care &amp; Maintenance</span></nav>
+
+<section class="section">
+  <div class="container">
+    <div class="svc-layout">
+      <div>
+        <h2 class="section-title fade-up" style="font-size:26px">What's Included</h2>
+        <p class="fade-up" style="color:var(--clr-text-muted);line-height:1.8;margin-bottom:20px">Our lawn care programme is a comprehensive, season-long treatment plan designed to produce consistently healthy, beautiful turf. We use professional-grade equipment and eco-friendly products on every visit.</p>
+        <ul class="icon-list fade-up">
+          <li>Precision mowing at the correct seasonal height</li>
+          <li>Clean edging along all paths, driveways and bed borders</li>
+          <li>Power trimming around obstacles and structures</li>
+          <li>Clipping collection and site cleanup after each visit</li>
+          <li>Seasonal fertilization programme (4 applications)</li>
+          <li>Broadleaf weed control treatments (2 per season)</li>
+          <li>Spring aeration and overseeding (Professional plan+)</li>
+          <li>Detailed visit report sent via app or email</li>
+        </ul>
+        <div class="service-image-grid fade-up">
+          <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?w=600&q=80" alt="Professional lawn mowing">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" alt="Lawn care result">
+        </div>
+        <h3 style="margin-bottom:16px;font-size:22px" class="fade-up">Our Process</h3>
+        <div class="process-steps fade-up">
+          <div class="process-step"><div class="step-num"></div><div class="step-body"><h4>Free On-Site Assessment</h4><p>We visit your property, measure the turf area, assess soil condition and discuss your goals. No obligation, no pressure.</p></div></div>
+          <div class="process-step"><div class="step-num"></div><div class="step-body"><h4>Custom Care Plan</h4><p>We create a tailored schedule and product recommendation based on your grass type, soil test results, and local conditions.</p></div></div>
+          <div class="process-step"><div class="step-num"></div><div class="step-body"><h4>Regular Scheduled Visits</h4><p>Your dedicated crew arrives on schedule. You receive an arrival notification and post-visit report after every service.</p></div></div>
+          <div class="process-step"><div class="step-num"></div><div class="step-body"><h4>Seasonal Adjustments</h4><p>We adapt the programme as seasons change — spring prep, summer maintenance, fall aeration, and winter prep are all included.</p></div></div>
+        </div>
+      </div>
+      <div class="svc-sidebar fade-up">
+        <div class="svc-sidebar-card">
+          <div class="card-head">Quick Booking</div>
+          <div class="card-body">
+            <p style="font-size:13px;color:var(--clr-text-muted);margin-bottom:16px">Book this service online in &lt;2 minutes. Free consultation included.</p>
+            <a href="booking.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:10px">Book Now</a>
+            <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center">Ask a Question</a>
+          </div>
+        </div>
+        <div class="svc-sidebar-card">
+          <div class="card-head">Starting Price</div>
+          <div class="card-body">
+            <div style="font-size:36px;font-weight:800;font-family:var(--ff-head);color:var(--clr-primary)"><span style="font-size:14px;font-weight:400;color:var(--clr-text-muted)">/month</span></div>
+            <p style="font-size:13px;color:var(--clr-text-muted);margin-top:8px">Covers properties up to 4,000 sq ft. Use our calculator for precise pricing.</p>
+            <a href="service-calculator.html" style="font-size:13px;color:var(--clr-primary);font-weight:600;display:inline-block;margin-top:10px">Calculate your price </a>
+          </div>
+        </div>
+        <div class="svc-sidebar-card">
+          <div class="card-head">Other Services</div>
+          <div class="card-body" style="display:flex;flex-direction:column;gap:10px">
+            <a href="services.html#landscape" style="color:var(--clr-text);font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px"> Landscape Design</a>
+            <a href="services.html#irrigation" style="color:var(--clr-text);font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px"> Irrigation Systems</a>
+            <a href="services.html#patio" style="color:var(--clr-text);font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px"> Patios &amp; Hardscape</a>
+            <a href="services.html#tree" style="color:var(--clr-text);font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px"> Tree &amp; Shrub Care</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container text-center">
+    <h2 class="section-title fade-up">Ready to Get Started?</h2>
+    <p class="section-sub fade-up">Join over 500 satisfied clients and experience the GreenScape difference.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap" class="fade-up">
+      <a href="booking.html" class="btn btn-primary">Book Free Consultation</a>
+      <a href="case-studies.html" class="btn btn-outline">See Our Work</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div style="border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px"><p style="color:#9ec4b0;font-size:13px"> 2026 GreenScape Landscaping.</p><div style="display:flex;gap:16px"><a href="about.html" style="color:#9ec4b0;font-size:13px">About</a><a href="services.html" style="color:#9ec4b0;font-size:13px">Services</a><a href="contact.html" style="color:#9ec4b0;font-size:13px">Contact</a></div></div></div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
+

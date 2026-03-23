@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Service | GreenScape</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    /* ── Booking Page Styles ── */
+
+    .booking-hero {
+      background: linear-gradient(135deg, #1a5c38 0%, #2e8b57 60%, #3aa76d 100%);
+      padding: 60px 20px 80px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .booking-hero h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .booking-hero p {
+      font-size: 17px;
+      opacity: 0.88;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── Card ── */
+
+    .booking-section {
+      padding: 0 20px 70px;
+    }
+
+    .booking-card {
+      background: #fff;
+      max-width: 680px;
+      margin: -46px auto 0;
+      border-radius: 14px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.13);
+      padding: 48px 52px;
+    }
+
+    .booking-card h2 {
+      font-size: 22px;
+      color: #2e8b57;
+      margin-bottom: 6px;
+    }
+
+    .booking-card .subheading {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 20px;
+    }
+
+    /* ── Form Grid ── */
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #444;
+      letter-spacing: 0.3px;
+    }
+
+    .form-group label span.required {
+      color: #e03131;
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #dde2e8;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #333;
+      background: #fafafa;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      outline: none;
+      font-family: Arial, sans-serif;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #2e8b57;
+      box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.12);
+      background: #fff;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #b0b8c1;
+    }
+
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%232e8b57' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    /* ── Date input ── */
+
+    .form-group input[type="date"] {
+      color: #555;
+      cursor: pointer;
+    }
+
+    /* ── Submit row ── */
+
+    .form-footer {
+      margin-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .form-footer p {
+      font-size: 13px;
+      color: #888;
+    }
+
+    .form-footer p a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, #ffb703, #fb8500);
+      color: #fff;
+      border: none;
+      padding: 13px 38px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      letter-spacing: 0.4px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 14px rgba(251, 133, 0, 0.35);
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(251, 133, 0, 0.45);
+    }
+
+    /* ── Trust badges ── */
+
+    .trust-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 32px 20px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .trust-item .icon {
+      width: 38px;
+      height: 38px;
+      background: #e8f5ee;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── Responsive ── */
+
+    @media (max-width: 620px) {
+      .booking-card {
+        padding: 32px 22px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full-width {
+        grid-column: 1;
+      }
+
+      .booking-hero h1 {
+        font-size: 28px;
+      }
+
+      .form-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">Green<span>Scape</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+  <div class="nav-auth">
+    <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+    <a href="login.html" class="btn-nav-outline">Login</a>
+    <a href="booking.html" class="btn-nav-solid active">Book Now</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+  <!-- HERO BANNER -->
+  <div class="booking-hero">
+    <h1>Book a Landscaping Service</h1>
+    <p>Fill in the form below and our team will confirm your appointment within 24 hours.</p>
+  </div>
+
+  <!-- BOOKING CARD -->
+  <section class="booking-section">
+    <div class="booking-card">
+      <h2>Service Request Form</h2>
+      <p class="subheading">All fields marked <span style="color:#e03131">*</span> are required.</p>
+
+      <form id="bookingForm" novalidate>
+
+        <div class="form-grid">
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="fullName">Full Name <span class="required">*</span></label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              placeholder="e.g. John Smith"
+              required
+              autocomplete="name"
+            >
+          </div>
+
+          <!-- Phone -->
+          <div class="form-group">
+            <label for="phone">Phone Number <span class="required">*</span></label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="e.g. (555) 123-4567"
+              required
+              autocomplete="tel"
+            >
+          </div>
+
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+              autocomplete="email"
+            >
+          </div>
+
+          <!-- Service Type -->
+          <div class="form-group">
+            <label for="serviceType">Service Type <span class="required">*</span></label>
+            <select id="serviceType" name="serviceType" required>
+              <option value="" disabled selected>Select a service&hellip;</option>
+              <option value="lawn-maintenance">Lawn Maintenance</option>
+              <option value="garden-design">Garden Design</option>
+              <option value="tree-trimming">Tree Trimming &amp; Pruning</option>
+              <option value="irrigation">Irrigation Installation</option>
+              <option value="hardscaping">Hardscaping</option>
+              <option value="snow-removal">Snow Removal</option>
+              <option value="fertilization">Fertilization &amp; Weed Control</option>
+              <option value="other">Other / Not Listed</option>
+            </select>
+          </div>
+
+          <!-- Preferred Date -->
+          <div class="form-group full-width">
+            <label for="preferredDate">Preferred Service Date <span class="required">*</span></label>
+            <input
+              type="date"
+              id="preferredDate"
+              name="preferredDate"
+              required
+            >
+          </div>
+
+          <!-- Message -->
+          <div class="form-group full-width">
+            <label for="message">Additional Details</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Describe your property, special requirements, or any questions you have&hellip;"
+            ></textarea>
+          </div>
+
+        </div><!-- /.form-grid -->
+
+        <div class="form-footer">
+          <p>Need help? <a href="contact.html">Contact us</a></p>
+          <button type="submit" class="btn-submit">Request Booking &#8250;</button>
+        </div>
+
+      </form>
+    </div><!-- /.booking-card -->
+  </section>
+
+  <!-- TRUST BADGES -->
+  <div class="trust-row">
+    <div class="trust-item">
+      <div class="icon">&#9989;</div>
+      <span>Confirmed within 24 hrs</span>
+    </div>
+    <div class="trust-item">
+      <div class="icon">&#128274;</div>
+      <span>Your data is secure</span>
+    </div>
+    <div class="trust-item">
+      <div class="icon">&#11088;</div>
+      <span>5-Star Rated Service</span>
+    </div>
+    <div class="trust-item">
+      <div class="icon">&#128222;</div>
+      <span>Free Consultation</span>
+    </div>
+  </div>
+
+  <script>
+    // Set minimum date to today
+    const dateInput = document.getElementById('preferredDate');
+    const today = new Date().toISOString().split('T')[0];
+    dateInput.setAttribute('min', today);
+
+    // Basic client-side validation with visual feedback
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const fields = this.querySelectorAll('[required]');
+      let valid = true;
+
+      fields.forEach(function (field) {
+        field.style.borderColor = '';
+        if (!field.value.trim()) {
+          field.style.borderColor = '#e03131';
+          field.focus();
+          valid = false;
+        }
+      });
+
+      if (valid) {
+        const btn = this.querySelector('.btn-submit');
+        btn.textContent = '&#10003; Booking Submitted!';
+        btn.style.background = 'linear-gradient(135deg, #2e8b57, #1a5c38)';
+        btn.disabled = true;
+      }
+    });
+  </script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

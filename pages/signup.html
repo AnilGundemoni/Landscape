@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Create your free GreenScape account to manage bookings, view invoices, and track your service history.">
+  <title>Create Account | GreenScape</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    .auth-page { min-height:100vh;display:grid;grid-template-columns:1fr 1fr }
+    .auth-visual { background:url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=900&q=80') center/cover;position:relative;display:flex;align-items:flex-start;padding:48px }
+    .auth-visual::after { content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(27,91,56,.85),rgba(0,0,0,.5)) }
+    .auth-visual-content { position:relative;z-index:1;color:#fff;margin-top:80px }
+    .auth-visual-content h2 { font-size:28px;margin-bottom:14px }
+    .auth-visual-content p { font-size:15px;opacity:.85;line-height:1.7;margin-bottom:24px }
+    .benefit-list { list-style:none;padding:0;display:flex;flex-direction:column;gap:12px }
+    .benefit-list li { display:flex;align-items:center;gap:12px;font-size:14px }
+    .benefit-list li::before { content:'';background:var(--clr-accent);color:#fff;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0 }
+    .auth-logo-overlay { position:absolute;top:32px;left:32px;z-index:2;font-family:var(--ff-head);font-size:22px;font-weight:800;color:#fff }
+    .auth-logo-overlay span { color:var(--clr-accent) }
+    .auth-form-panel { display:flex;align-items:center;justify-content:center;padding:48px 40px;background:var(--clr-bg);overflow-y:auto }
+    .auth-box { width:100%;max-width:420px }
+    .auth-box h1 { font-size:28px;margin-bottom:6px }
+    .auth-box p.auth-sub { color:var(--clr-text-muted);font-size:14px;margin-bottom:28px }
+    .auth-social { display:flex;flex-direction:column;gap:10px;margin-bottom:20px }
+    .social-btn { display:flex;align-items:center;justify-content:center;gap:10px;padding:11px;border:1px solid var(--clr-border);border-radius:var(--radius-md);font-size:14px;font-weight:600;cursor:pointer;background:var(--clr-surface);color:var(--clr-text);text-decoration:none;transition:.2s }
+    .social-btn:hover { border-color:var(--clr-primary);background:var(--clr-primary-light) }
+    .divider { display:flex;align-items:center;gap:12px;margin:16px 0;color:var(--clr-text-muted);font-size:12px }
+    .divider::before,.divider::after { content:'';flex:1;height:1px;background:var(--clr-border) }
+    .terms-note { font-size:12px;color:var(--clr-text-muted);text-align:center;line-height:1.6;margin-top:14px }
+    .terms-note a { color:var(--clr-primary) }
+    .auth-footer { text-align:center;margin-top:20px;font-size:14px;color:var(--clr-text-muted) }
+    .auth-footer a { color:var(--clr-primary);font-weight:600;text-decoration:none }
+    @media(max-width:768px){.auth-page{grid-template-columns:1fr}.auth-visual{display:none}}
+  </style>
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-visual">
+    <a href="index.html" class="auth-logo-overlay"> Green<span>Scape</span></a>
+    <div class="auth-visual-content">
+      <h2>Join 500+ Happy Homeowners</h2>
+      <p>Create your free account and get instant access to booking, service history, and exclusive member discounts.</p>
+      <ul class="benefit-list">
+        <li>Book and manage services 24/7 online</li>
+        <li>View full service history and invoices</li>
+        <li>Track crew ETA in real time</li>
+        <li>5% member discount on all services</li>
+        <li>Priority scheduling for members</li>
+      </ul>
+    </div>
+  </div>
+  <div class="auth-form-panel">
+    <div class="auth-box">
+      <h1>Create Your Account</h1>
+      <p class="auth-sub">It's free. No credit card required.</p>
+      <div class="auth-social">
+        <a href="#" class="social-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.47 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+          Sign up with Google
+        </a>
+      </div>
+      <div class="divider">or create account with email</div>
+      <form data-validate action="#" method="post">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name <span style="color:var(--clr-danger)">*</span></label>
+            <input type="text" id="firstName" name="firstname" placeholder="Jane" required autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name <span style="color:var(--clr-danger)">*</span></label>
+            <input type="text" id="lastName" name="lastname" placeholder="Doe" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="signEmail">Email Address <span style="color:var(--clr-danger)">*</span></label>
+          <input type="email" id="signEmail" name="email" placeholder="you@example.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="signPhone">Phone Number</label>
+          <input type="tel" id="signPhone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="signPwd">Password <span style="color:var(--clr-danger)">*</span></label>
+          <input type="password" id="signPwd" name="password" placeholder="Min. 8 characters" required minlength="8" autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px">Create Free Account</button>
+      </form>
+      <p id="authMsg" style="display:none;margin-top:14px;padding:12px;border-radius:var(--radius-md);font-size:14px;font-weight:600;text-align:center"></p>
+      <p class="terms-note">By creating an account you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+      <p class="auth-footer" style="margin-top:16px">Already have an account? <a href="login.html">Sign in</a></p>
+    </div>
+  </div>
+</div>
+<script src="../assets/js/main.js"></script>
+<script>
+(function () {
+  // If already logged in, go straight to home
+  if (localStorage.getItem('gs_session')) {
+    window.location.replace('index.html');
+    return;
+  }
+
+  var form = document.querySelector('form[data-validate]');
+  var msg  = document.getElementById('authMsg');
+
+  function showMsg(text, ok) {
+    msg.textContent = text;
+    msg.style.display = 'block';
+    msg.style.background = ok ? '#d1fae5' : '#fee2e2';
+    msg.style.color       = ok ? '#065f46' : '#991b1b';
+    msg.style.border      = '1px solid ' + (ok ? '#6ee7b7' : '#fca5a5');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var first  = document.getElementById('firstName').value.trim();
+    var last   = document.getElementById('lastName').value.trim();
+    var email  = document.getElementById('signEmail').value.trim().toLowerCase();
+    var pwd    = document.getElementById('signPwd').value;
+
+    if (pwd.length < 8) {
+      showMsg('Password must be at least 8 characters.', false);
+      return;
+    }
+
+    var users = JSON.parse(localStorage.getItem('gs_users') || '{}');
+
+    if (users[email]) {
+      showMsg('An account with this email already exists. Please log in instead.', false);
+      setTimeout(function () { window.location.href = 'login.html'; }, 1500);
+      return;
+    }
+
+    var name = first + ' ' + last;
+    users[email] = { name: name, password: pwd };
+    localStorage.setItem('gs_users', JSON.stringify(users));
+    localStorage.setItem('gs_session', JSON.stringify({ email: email, name: name }));
+
+    showMsg('Account created! Welcome, ' + first + '. Redirecting…', true);
+    setTimeout(function () { window.location.href = 'index.html'; }, 900);
+  });
+})();
+</script>
+</body>
+</html>

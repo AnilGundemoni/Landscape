@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Browse GreenScape services and shop project add-ons with a full cart experience.">
+  <title>Services & Shop | GreenScape</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    .services-toolbar {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .shop-filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 18px;
+    }
+    .shop-filters input,
+    .shop-filters select {
+      padding: 10px 12px;
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-sm);
+      background: var(--clr-surface);
+      font-size: 13px;
+      color: var(--clr-text);
+      min-width: 180px;
+    }
+    .shop-head {
+      margin: 20px auto 0;
+      max-width: 1180px;
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .shop-result {
+      font-size: 13px;
+      color: var(--clr-text-muted);
+    }
+    .services-shop-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 24px 70px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .service-product-card {
+      border: 1px solid var(--clr-border);
+      border-radius: var(--radius-md);
+      background: var(--clr-surface);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--dur-fast), box-shadow var(--dur-fast);
+    }
+    .service-product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    .service-image-wrap {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+      background: #edf4ef;
+    }
+    .service-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .35s ease;
+    }
+    .service-product-card:hover .service-image-wrap img {
+      transform: scale(1.06);
+    }
+    .service-badge {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+    }
+    .service-badge.sale { background: #d63333; }
+    .service-badge.new { background: var(--clr-primary); }
+    .service-badge.bestseller { background: #ffb703; color: #17402a; }
+    .service-info {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .service-cat {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--clr-primary);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .service-info h3 {
+      font-family: var(--ff-head);
+      font-size: 17px;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+    .service-info p {
+      color: var(--clr-text-muted);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 12px;
+      flex: 1;
+    }
+    .service-stars {
+      color: #ffb703;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .service-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .service-price {
+      font-family: var(--ff-head);
+      color: var(--clr-primary-dk);
+      font-size: 24px;
+      font-weight: 800;
+    }
+    .service-price-old {
+      color: #b5bdb8;
+      text-decoration: line-through;
+      font-size: 13px;
+    }
+    .service-btn-row {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+    }
+    .btn-mini {
+      border: 1px solid var(--clr-border);
+      border-radius: 8px;
+      padding: 9px 11px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #fff;
+      color: var(--clr-text);
+      cursor: pointer;
+    }
+    .btn-cart-add {
+      border: none;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffb703, #fb8500);
+      color: #fff;
+      flex: 1;
+      cursor: pointer;
+    }
+    .btn-cart-add.added {
+      background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dk));
+    }
+    .cart-toggle-btn {
+      border: none;
+      background: #fff;
+      color: var(--clr-primary-dk);
+      border-radius: var(--radius-md);
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      font-family: var(--ff-head);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    .cart-count-pill {
+      min-width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #d63333;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      padding: 0 6px;
+    }
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .45);
+      backdrop-filter: blur(2px);
+      z-index: 3100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+    }
+    .cart-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(420px, 100vw);
+      height: 100vh;
+      background: var(--clr-surface);
+      z-index: 3200;
+      box-shadow: -12px 0 30px rgba(0, 0, 0, .18);
+      transform: translateX(100%);
+      transition: transform .25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+    .cart-head {
+      padding: 18px;
+      border-bottom: 1px solid var(--clr-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-head h3 {
+      font-family: var(--ff-head);
+      font-size: 18px;
+      margin: 0;
+    }
+    .cart-close {
+      border: none;
+      background: transparent;
+      font-size: 26px;
+      line-height: 1;
+      color: var(--clr-text-muted);
+      cursor: pointer;
+    }
+    .cart-items {
+      padding: 14px 18px;
+      overflow: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .cart-item {
+      border: 1px solid var(--clr-border);
+      border-radius: 10px;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 62px 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+    .cart-item img {
+      width: 62px;
+      height: 62px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .cart-name {
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+    .cart-price {
+      font-size: 12px;
+      color: var(--clr-text-muted);
+      margin-bottom: 6px;
+    }
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .qty-controls button {
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--clr-border);
+      border-radius: 50%;
+      background: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .cart-remove {
+      border: none;
+      background: transparent;
+      color: #d63333;
+      font-size: 12px;
+      cursor: pointer;
+      align-self: start;
+    }
+    .cart-empty {
+      text-align: center;
+      padding: 40px 15px;
+      color: var(--clr-text-muted);
+      font-size: 14px;
+    }
+    .cart-foot {
+      border-top: 1px solid var(--clr-border);
+      padding: 16px 18px 22px;
+      display: grid;
+      gap: 12px;
+      background: var(--clr-surface-2);
+    }
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--clr-text-muted);
+    }
+    .cart-total-row strong {
+      font-family: var(--ff-head);
+      color: var(--clr-primary-dk);
+      font-size: 18px;
+    }
+    .cart-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .cart-actions button {
+      flex: 1;
+      border-radius: 10px;
+      padding: 11px;
+      font-family: var(--ff-head);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .cart-actions .clear {
+      border: 1px solid var(--clr-border);
+      background: #fff;
+      color: var(--clr-text);
+    }
+    .cart-actions .checkout {
+      border: none;
+      background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dk));
+      color: #fff;
+    }
+    .shop-empty {
+      text-align: center;
+      color: var(--clr-text-muted);
+      font-size: 14px;
+      grid-column: 1 / -1;
+      border: 1px dashed var(--clr-border);
+      border-radius: 12px;
+      padding: 40px 20px;
+      background: var(--clr-surface);
+    }
+    .shop-toast {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 3400;
+      background: var(--clr-primary-dk);
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .shop-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (max-width: 560px) {
+      .services-toolbar,
+      .shop-head,
+      .services-shop-grid {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .shop-filters input,
+      .shop-filters select {
+        min-width: 100%;
+      }
+      .cart-actions {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">Green<span>Scape</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+  <div class="nav-auth">
+    <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+    <button id="cartToggle" class="cart-toggle-btn" type="button" aria-label="Open cart">🛒 Cart <span id="cartCount" class="cart-count-pill">0</span></button>
+    <a href="login.html" class="btn-nav-outline">Login</a>
+    <a href="booking.html" class="btn-nav-solid">Book Now</a>
+  </div>
+  <button class="nav-toggle" id="navToggle"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content fade-up">
+    <h1>Landscape Services + Add-ons</h1>
+    <p>Book core services and add premium tools and supplies in one place.</p>
+    <nav class="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Services</span></nav>
+  </div>
+</div>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">What We Offer</span>
+      <h2 class="section-title">Full-Spectrum Landscape Services</h2>
+      <p class="section-sub">From weekly maintenance contracts to one-time transformations, we handle everything your outdoor space needs.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="card fade-up"><div class="card-img-wrap"><img class="card-img" src="../assets/images/gallery.jpg" alt="Lawn Maintenance"></div><div class="card-body"><h3>Lawn Maintenance</h3><p>Regular mowing, edging, fertilization and weed control to keep your lawn pristine year-round.</p><a href="service-details.html" class="card-link">View Details</a></div></div>
+      <div class="card fade-up"><div class="card-img-wrap"><img class="card-img" src="../assets/images/gardendesign.jpg" alt="Garden Design"></div><div class="card-body"><h3>Garden Design</h3><p>Custom landscape plans with seasonal color, native plants and sustainable planting schemes.</p><a href="service-details.html" class="card-link">View Details</a></div></div>
+      <div class="card fade-up"><div class="card-img-wrap"><img class="card-img" src="../assets/images/service1.jpg" alt="Tree Trimming"></div><div class="card-body"><h3>Tree Trimming</h3><p>Professional pruning, shaping and removal with full cleanup. Certified arborists on every job.</p><a href="service-details.html" class="card-link">View Details</a></div></div>
+      <div class="card fade-up"><div class="card-img-wrap"><img class="card-img" src="../assets/images/service2.jpg" alt="Irrigation Systems"></div><div class="card-body"><h3>Irrigation Systems</h3><p>Design, installation, repair and winterization of smart drip and sprinkler systems.</p><a href="service-details.html" class="card-link">View Details</a></div></div>
+      <div class="card fade-up"><div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?w=600&q=80" alt="Hardscaping"></div><div class="card-body"><h3>Hardscaping</h3><p>Patios, walkways, driveways, retaining walls and outdoor structures built to last.</p><a href="service-details.html" class="card-link">View Details</a></div></div>
+      <div class="card fade-up"><div class="card-img-wrap"><img class="card-img" src="https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=600&q=80" alt="Snow Removal"></div><div class="card-body"><h3>Snow Removal</h3><p>24/7 emergency snow plowing and ice management for driveways, lots and walkways.</p><a href="service-details.html" class="card-link">View Details</a></div></div>
+      <div class="card fade-up"><div class="card-img-wrap"><img class="card-img" src="../assets/images/landscaping.jpg" alt="Fertilization and Aeration"></div><div class="card-body"><h3>Fertilization &amp; Aeration</h3><p>Core aeration, overseeding and custom fertilization programs tailored to your soil type.</p><a href="service-details.html" class="card-link">View Details</a></div></div>
+      <div class="card fade-up"><div class="card-img-wrap"><img class="card-img" src="../assets/images/service3.jpg" alt="Seasonal Planting"></div><div class="card-body"><h3>Snow removal</h3><p>Spring, summer and fall planting services with premium annuals, perennials and bulbs.</p><a href="service-details.html" class="card-link">View Details</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="text-center fade-up">
+    <span class="section-label">Project Add-ons</span>
+    <h2 class="section-title">Shop Tools & Supplies</h2>
+    <p class="section-sub">These cart items were moved from dashboard so you can buy add-ons directly from the Services page.</p>
+  </div>
+
+  <div class="services-toolbar">
+    <div class="shop-filters">
+      <input id="shopSearch" type="text" placeholder="Search add-ons...">
+      <select id="shopCategory">
+        <option value="all">All Categories</option>
+        <option value="hand-tools">Hand Tools</option>
+        <option value="power-tools">Power Tools</option>
+        <option value="watering">Watering</option>
+        <option value="soil">Soil & Fertilizer</option>
+        <option value="seeds">Seeds</option>
+      </select>
+      <select id="shopSort">
+        <option value="featured">Sort: Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="name">Name A-Z</option>
+      </select>
+    </div>
+  </div>
+  <div class="shop-head">
+    <div id="shopResult" class="shop-result">Showing 0 products</div>
+  </div>
+
+  <div id="shopGrid" class="services-shop-grid"></div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-banner fade-up">
+      <h2>Need More Services?</h2>
+      <p>We are adding premium seasonal packages and new landscaping events very soon.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="comingsoon.html" class="btn btn-primary">More Services (Coming Soon)</a>
+        <a href="booking.html" class="btn btn-white">Book Current Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="cartOverlay" class="cart-overlay" aria-hidden="true"></div>
+<aside id="cartDrawer" class="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="cart-head">
+    <h3>Your Cart</h3>
+    <button id="cartClose" class="cart-close" type="button" aria-label="Close cart">&times;</button>
+  </div>
+  <div id="cartItems" class="cart-items"></div>
+  <div class="cart-foot">
+    <div class="cart-total-row"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div>
+    <div class="cart-actions">
+      <button id="cartClear" class="clear" type="button">Clear Cart</button>
+      <button id="cartCheckout" class="checkout" type="button">Proceed to Checkout</button>
+    </div>
+  </div>
+</aside>
+<div id="shopToast" class="shop-toast">Item added to cart.</div>
+
+<footer class="footer"><div class="container"><div class="footer-grid">
+  <div class="footer-brand"><div class="logo">GreenScape</div><p>Creating beautiful outdoor spaces since 2006.</p></div>
+  <div class="footer-col"><h4>Services</h4><ul><li><a href="services.html">Lawn Maintenance</a></li><li><a href="services.html">Garden Design</a></li><li><a href="services.html">Snow Removal</a></li></ul></div>
+  <div class="footer-col"><h4>Company</h4><ul><li><a href="about.html">About</a></li><li><a href="team.html">Team</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  <div class="footer-newsletter footer-col"><h4>Newsletter</h4><input type="email" placeholder="Your email"><button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px">Subscribe</button></div>
+</div></div><div class="footer-bottom"><p>&copy; 2026 GreenScape Landscaping.</p></div></footer>
+
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/services.js"></script>
+</body>
+</html>

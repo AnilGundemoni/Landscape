@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Explore real GreenScape project case studies – before & after transformations with results and client testimonials.">
+  <title>Case Studies | GreenScape</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    .cs-card { background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-lg);overflow:hidden;display:flex;flex-direction:column }
+    .cs-images { display:grid;grid-template-columns:1fr 1fr;position:relative }
+    .cs-images img { width:100%;height:200px;object-fit:cover;display:block }
+    .cs-badge { position:absolute;top:12px;left:50%;transform:translateX(-50%);display:flex;gap:0;z-index:2 }
+    .cs-badge span { font-size:10px;font-weight:800;padding:4px 10px;text-transform:uppercase;letter-spacing:.5px }
+    .cs-badge .before { background:#ef4444;color:#fff;border-radius:4px 0 0 4px }
+    .cs-badge .after { background:var(--clr-primary);color:#fff;border-radius:0 4px 4px 0 }
+    .cs-body { padding:24px;flex:1;display:flex;flex-direction:column;gap:12px }
+    .cs-tag { display:inline-block;background:var(--clr-primary-light);color:var(--clr-primary);font-size:11px;font-weight:700;padding:3px 10px;border-radius:var(--radius-full);text-transform:uppercase;letter-spacing:.5px }
+    .cs-body h3 { font-size:18px;font-family:var(--ff-head);font-weight:800;line-height:1.3 }
+    .cs-desc { font-size:14px;color:var(--clr-text-muted);line-height:1.7;flex:1 }
+    .cs-metrics { display:flex;gap:16px;flex-wrap:wrap }
+    .cs-metric { text-align:center;background:var(--clr-bg);border-radius:var(--radius-sm);padding:8px 14px }
+    .cs-metric strong { display:block;font-size:20px;font-weight:800;color:var(--clr-primary);font-family:var(--ff-head) }
+    .cs-metric small { font-size:11px;color:var(--clr-text-muted);text-transform:uppercase;letter-spacing:.5px }
+    .cs-footer { display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--clr-border) }
+    .cs-client { display:flex;align-items:center;gap:10px }
+    .cs-client img { width:36px;height:36px;border-radius:50%;object-fit:cover }
+    .cs-client div strong { font-size:13px }
+    .cs-client div span { font-size:11px;color:var(--clr-text-muted) }
+    .cs-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:28px }
+    @media(max-width:700px){.cs-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"><a href="index.html" class="logo"> Green<span>Scape</span></a><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li></ul><div class="nav-auth"><button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode">&#127769;</button><a href="login.html" class="btn-nav-outline">Login</a><a href="booking.html" class="btn-nav-solid">Book Now</a></div><button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button></nav>
+<div class="page-hero">
+  <div class="page-hero-content fade-up">
+    <h1>Project Case Studies</h1>
+    <p>Real transformations — see how we turn outdoor spaces into living masterpieces.</p>
+    <nav class="breadcrumb" aria-label="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Case Studies</span></nav>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:40px">
+      <span class="section-label">Our Work</span>
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-sub">From suburban backyards to corporate campuses, every project tells a story.</p>
+    </div>
+    <div class="cs-grid">
+      <div class="cs-card fade-up">
+        <div class="cs-images"><div class="cs-badge"><span class="before">Before</span><span class="after">After</span></div><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80" alt="Before"><img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&q=80" alt="After"></div>
+        <div class="cs-body">
+          <span class="cs-tag">Landscape Design</span>
+          <h3>Thompson Residence — Complete Backyard Redesign</h3>
+          <p class="cs-desc">A neglected -acre yard transformed into a family outdoor living space with native plantings, stone pathways, and a built-in fire-pit seating area. Project completed in 4 weeks.</p>
+          <div class="cs-metrics">
+            <div class="cs-metric"><strong>4 wks</strong><small>Timeline</small></div>
+            <div class="cs-metric"><strong></strong><small>Budget</small></div>
+            <div class="cs-metric"><strong>5</strong><small>Rating</small></div>
+          </div>
+          <div class="cs-footer">
+            <div class="cs-client"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80" alt="Client"><div><strong>Helen Thompson</strong><span>Homeowner, Nassau County</span></div></div>
+            <a href="booking.html" class="btn btn-primary" style="font-size:13px;padding:8px 16px">Start Yours</a>
+          </div>
+        </div>
+      </div>
+      <div class="cs-card fade-up">
+        <div class="cs-images"><div class="cs-badge"><span class="before">Before</span><span class="after">After</span></div><img src="https://images.unsplash.com/photo-1586769852044-692d6e3703f0?w=400&q=80" alt="Before"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4aaae?w=400&q=80" alt="After"></div>
+        <div class="cs-body">
+          <span class="cs-tag">Commercial</span>
+          <h3>Meridian Office Park — 3-Acre Campus Grounds</h3>
+          <p class="cs-desc">Full grounds renovation across 3 office buildings. Replaced deteriorated turf, installed irrigation system, redesigned entrance planting beds, and initiated a seasonal colour programme.</p>
+          <div class="cs-metrics">
+            <div class="cs-metric"><strong>8 wks</strong><small>Timeline</small></div>
+            <div class="cs-metric"><strong></strong><small>Budget</small></div>
+            <div class="cs-metric"><strong>5</strong><small>Rating</small></div>
+          </div>
+          <div class="cs-footer">
+            <div class="cs-client"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=80&q=80" alt="Client"><div><strong>David Chen</strong><span>Facilities Director, Meridian</span></div></div>
+            <a href="contact.html" class="btn btn-primary" style="font-size:13px;padding:8px 16px">Get Quote</a>
+          </div>
+        </div>
+      </div>
+      <div class="cs-card fade-up">
+        <div class="cs-images"><div class="cs-badge"><span class="before">Before</span><span class="after">After</span></div><img src="https://images.unsplash.com/photo-1560343776-97e7d202ff0e?w=400&q=80" alt="Before"><img src="https://images.unsplash.com/photo-1617721673542-32f85da7fb28?w=400&q=80" alt="After"></div>
+        <div class="cs-body">
+          <span class="cs-tag">Patio &amp; Hardscape</span>
+          <h3>Rodriguez Family — Concrete Patio to Stone Terrace</h3>
+          <p class="cs-desc">Removed aging concrete slab and installed a multi-level bluestone terrace with built-in planters, recessed lighting, and a pergola structure. Increased usable outdoor living area by 60%.</p>
+          <div class="cs-metrics">
+            <div class="cs-metric"><strong>3 wks</strong><small>Timeline</small></div>
+            <div class="cs-metric"><strong></strong><small>Budget</small></div>
+            <div class="cs-metric"><strong>5</strong><small>Rating</small></div>
+          </div>
+          <div class="cs-footer">
+            <div class="cs-client"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=80" alt="Client"><div><strong>Carlos Rodriguez</strong><span>Homeowner, Suffolk County</span></div></div>
+            <a href="booking.html" class="btn btn-primary" style="font-size:13px;padding:8px 16px">Start Yours</a>
+          </div>
+        </div>
+      </div>
+      <div class="cs-card fade-up">
+        <div class="cs-images"><div class="cs-badge"><span class="before">Before</span><span class="after">After</span></div><img src="https://images.unsplash.com/photo-1531417666976-ed2bdbeb043b?w=400&q=80" alt="Before"><img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=400&q=80" alt="After"></div>
+        <div class="cs-body">
+          <span class="cs-tag">Irrigation</span>
+          <h3>Morrison Estate — Smart Irrigation System Install</h3>
+          <p class="cs-desc">Designed and installed a 12-zone smart irrigation system across a 1.2-acre estate. App-controlled with weather-based scheduling. Reduced water usage by 35% vs. the old manual system.</p>
+          <div class="cs-metrics">
+            <div class="cs-metric"><strong>2 wks</strong><small>Timeline</small></div>
+            <div class="cs-metric"><strong>.5K</strong><small>Budget</small></div>
+            <div class="cs-metric"><strong>-35%</strong><small>Water Usage</small></div>
+          </div>
+          <div class="cs-footer">
+            <div class="cs-client"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Client"><div><strong>Robert Morrison</strong><span>Estate Owner</span></div></div>
+            <a href="services.html" class="btn btn-primary" style="font-size:13px;padding:8px 16px">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-banner fade-up">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Book a free on-site consultation and get a detailed proposal within 48 hours.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="booking.html" class="btn btn-primary">Book Free Consultation</a>
+        <a href="gallery.html" class="btn btn-white">View Full Gallery</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div style="border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px"><p style="color:#9ec4b0;font-size:13px"> 2026 GreenScape Landscaping.</p><div style="display:flex;gap:16px"><a href="about.html" style="color:#9ec4b0;font-size:13px">About</a><a href="services.html" style="color:#9ec4b0;font-size:13px">Services</a><a href="contact.html" style="color:#9ec4b0;font-size:13px">Contact</a></div></div></div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
+

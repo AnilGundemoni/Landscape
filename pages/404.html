@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found | GreenScape</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    .error-section {
+      min-height: calc(100vh - var(--nav-h) - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      background: var(--clr-bg);
+    }
+    .error-wrap {
+      text-align: center;
+      max-width: 640px;
+    }
+    .error-number {
+      font-family: var(--ff-head);
+      font-size: clamp(100px, 20vw, 160px);
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--clr-primary-dk), var(--clr-primary-lt));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0;
+      letter-spacing: -4px;
+    }
+    .error-leaf {
+      font-size: 64px;
+      display: block;
+      margin: -16px auto 12px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-12px); }
+    }
+    .error-title {
+      font-family: var(--ff-head);
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      color: var(--clr-text);
+      margin-bottom: 14px;
+    }
+    .error-sub {
+      font-size: 16px;
+      color: var(--clr-text-muted);
+      line-height: 1.7;
+      margin-bottom: 36px;
+    }
+    .error-btns {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .error-nav-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--clr-border);
+      padding-top: 28px;
+    }
+    .error-nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--clr-primary);
+      transition: color var(--dur-fast);
+    }
+    .error-nav-links a:hover {
+      color: var(--clr-primary-dk);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">Green<span>Scape</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+  <div class="nav-auth">
+    <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+    <a href="login.html" class="btn-nav-outline">Login</a>
+    <a href="booking.html" class="btn-nav-solid">Book Now</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ── 404 Section ─────────────────────────────────────────── -->
+<section class="error-section">
+  <div class="error-wrap fade-up">
+    <div class="error-number">404</div>
+    <span class="error-leaf">🌿</span>
+    <h1 class="error-title">This Page Got Lost in the Garden</h1>
+    <p class="error-sub">
+      The page you're looking for may have been moved, renamed, or doesn't exist.
+      Let's help you find your way back to greener pastures.
+    </p>
+    <div class="error-btns">
+      <a href="index.html" class="btn btn-primary">← Back to Home</a>
+      <a href="services.html" class="btn btn-outline">View Our Services</a>
+      <a href="contact.html" class="btn btn-outline">Contact Us</a>
+    </div>
+    <nav class="error-nav-links" aria-label="Quick links">
+      <a href="gallery.html">Gallery</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="booking.html">Book a Service</a>
+      <a href="blog.html">Blog</a>
+      <a href="about.html">About Us</a>
+    </nav>
+  </div>
+</section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">GreenScape</div>
+        <p>Creating beautiful outdoor spaces since 2006.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Lawn Maintenance</a></li>
+          <li><a href="services.html">Garden Design</a></li>
+          <li><a href="services.html">Snow Removal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter footer-col">
+        <h4>Newsletter</h4>
+        <input type="email" placeholder="Your email">
+        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 GreenScape Landscaping.</p></div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

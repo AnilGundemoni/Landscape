@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon | GreenScape</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Full-screen hero background */
+    .cs-wrapper {
+      min-height: calc(100vh - var(--nav-h));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--clr-primary-dk) 0%, #0d3d21 100%);
+    }
+    .cs-wrapper::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('../assets/images/hero.jpg') center/cover no-repeat;
+      opacity: 0.18;
+      z-index: 0;
+    }
+    .cs-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 680px;
+      color: #fff;
+    }
+    .cs-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      margin-bottom: 24px;
+      color: var(--clr-accent);
+    }
+    .cs-title {
+      font-family: var(--ff-head);
+      font-size: clamp(36px, 7vw, 68px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+    .cs-title span { color: var(--clr-accent); }
+    .cs-sub {
+      font-size: 17px;
+      color: rgba(255,255,255,.78);
+      line-height: 1.7;
+      margin-bottom: 44px;
+    }
+
+    /* Countdown */
+    .cs-countdown {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 44px;
+    }
+    .cs-unit {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: var(--radius-md);
+      padding: 20px 28px;
+      min-width: 90px;
+      backdrop-filter: blur(6px);
+    }
+    .cs-num {
+      font-family: var(--ff-head);
+      font-size: 48px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      display: block;
+    }
+    .cs-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.55);
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* Email form */
+    .cs-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .cs-form input[type="email"] {
+      padding: 13px 20px;
+      border-radius: var(--radius-md);
+      border: none;
+      font-size: 15px;
+      font-family: var(--ff-body);
+      width: 280px;
+      max-width: 100%;
+      outline: none;
+      background: rgba(255,255,255,.95);
+      color: var(--clr-text);
+    }
+    .cs-form input[type="email"]::placeholder { color: var(--clr-text-muted); }
+    .cs-form button {
+      padding: 13px 28px;
+      border-radius: var(--radius-md);
+      border: none;
+      background: var(--clr-accent);
+      color: var(--clr-primary-dk);
+      font-family: var(--ff-head);
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background var(--dur-fast), transform var(--dur-fast);
+    }
+    .cs-form button:hover { background: var(--clr-accent-dk); transform: translateY(-2px); }
+
+    /* Social links */
+    .cs-socials {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+    }
+    .cs-socials a {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 17px;
+      transition: background var(--dur-fast), transform var(--dur-fast);
+    }
+    .cs-socials a:hover { background: var(--clr-primary-lt); transform: translateY(-3px); }
+
+    .cs-upcoming {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      text-align: left;
+    }
+    .cs-upcoming-card {
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.08);
+      border-radius: 12px;
+      overflow: hidden;
+      backdrop-filter: blur(6px);
+    }
+    .cs-upcoming-card img {
+      width: 100%;
+      height: 112px;
+      object-fit: cover;
+    }
+    .cs-upcoming-body {
+      padding: 10px 11px 12px;
+    }
+    .cs-upcoming-body h4 {
+      font-family: var(--ff-head);
+      font-size: 14px;
+      margin-bottom: 4px;
+      color: #fff;
+    }
+    .cs-upcoming-body p {
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(255,255,255,.75);
+      margin-bottom: 6px;
+    }
+    .cs-upcoming-time {
+      font-size: 11px;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      color: var(--clr-accent);
+      font-weight: 700;
+    }
+
+    /* Back to home link */
+    .cs-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 28px;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(255,255,255,.65);
+      transition: color var(--dur-fast);
+    }
+    .cs-home-link:hover { color: #fff; }
+
+    /* Floating leaves decoration */
+    .cs-leaf {
+      position: absolute;
+      font-size: 32px;
+      opacity: 0.15;
+      animation: drift 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .cs-leaf:nth-child(1) { top: 12%; left: 8%;  animation-delay: 0s;   font-size: 40px; }
+    .cs-leaf:nth-child(2) { top: 25%; right: 10%; animation-delay: 1.5s; }
+    .cs-leaf:nth-child(3) { bottom: 20%; left: 14%; animation-delay: 3s;  font-size: 50px; }
+    .cs-leaf:nth-child(4) { bottom: 30%; right: 7%; animation-delay: 0.8s; font-size: 28px; }
+    @keyframes drift {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50%       { transform: translateY(-18px) rotate(8deg); }
+    }
+
+    @media (max-width: 900px) {
+      .cs-upcoming { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="logo">Green<span>Scape</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="dashboard.html">Dashboard</a></li>
+  </ul>
+  <div class="nav-auth">
+    <button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+    <a href="login.html" class="btn-nav-outline">Login</a>
+    <a href="booking.html" class="btn-nav-solid">Book Now</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ── Coming Soon Section ─────────────────────────────────── -->
+<div class="cs-wrapper">
+  <!-- Decorative floating leaves -->
+  <span class="cs-leaf">🌿</span>
+  <span class="cs-leaf">🍃</span>
+  <span class="cs-leaf">🌱</span>
+  <span class="cs-leaf">🍀</span>
+
+  <div class="cs-content fade-up">
+    <span class="cs-badge">🌿 We're Growing Something New</span>
+
+    <h1 class="cs-title">
+      Something <span>Beautiful</span><br>is Coming Soon
+    </h1>
+    <p class="cs-sub">
+      We're putting the finishing touches on an amazing new experience for you.
+      Our new platform for GreenScape landscaping services launches very soon —
+      subscribe below to be the first to know.
+    </p>
+
+    <!-- Countdown Timer -->
+    <div class="cs-countdown">
+      <div class="cs-unit"><span class="cs-num" id="cs-days">00</span><span class="cs-label">Days</span></div>
+      <div class="cs-unit"><span class="cs-num" id="cs-hours">00</span><span class="cs-label">Hours</span></div>
+      <div class="cs-unit"><span class="cs-num" id="cs-mins">00</span><span class="cs-label">Minutes</span></div>
+      <div class="cs-unit"><span class="cs-num" id="cs-secs">00</span><span class="cs-label">Seconds</span></div>
+    </div>
+
+    <!-- Email capture -->
+    <form class="cs-form" onsubmit="handleNotify(event)">
+      <input type="email" id="cs-email" placeholder="Enter your email address" required>
+      <button type="submit"><i class="fa fa-bell" style="margin-right:8px"></i>Notify Me</button>
+    </form>
+    <div id="cs-msg" style="font-size:14px;color:var(--clr-accent);min-height:20px;margin-bottom:16px;"></div>
+
+    <!-- Social links -->
+    <div class="cs-socials">
+      <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+
+    <div class="cs-upcoming">
+      <article class="cs-upcoming-card">
+        <img src="https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=700&q=80" alt="Snow removal subscription feature preview">
+        <div class="cs-upcoming-body">
+          <h4>Snow Response Subscription</h4>
+          <p>Auto-dispatch feature for pre-approved winter clients with priority route assignment.</p>
+          <div class="cs-upcoming-time">ETA: April 2026</div>
+        </div>
+      </article>
+      <article class="cs-upcoming-card">
+        <img src="https://images.unsplash.com/photo-1607400201889-565b1ee75f8e?w=700&q=80" alt="Landscaping planner feature preview">
+        <div class="cs-upcoming-body">
+          <h4>3D Landscape Planner</h4>
+          <p>Preview hardscaping, plant layers, and irrigation zones before booking a project.</p>
+          <div class="cs-upcoming-time">ETA: May 2026</div>
+        </div>
+      </article>
+      <article class="cs-upcoming-card">
+        <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=700&q=80" alt="Community workshop event preview">
+        <div class="cs-upcoming-body">
+          <h4>Community Garden Workshops</h4>
+          <p>Monthly sessions on lawn nutrition, pruning cycles, and seasonal planting strategy.</p>
+          <div class="cs-upcoming-time">ETA: June 2026</div>
+        </div>
+      </article>
+    </div>
+
+    <a href="index.html" class="cs-home-link">
+      <i class="fa fa-arrow-left"></i> Back to current site
+    </a>
+  </div>
+</div>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">GreenScape</div>
+        <p>Creating beautiful outdoor spaces since 2006.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html">Lawn Maintenance</a></li>
+          <li><a href="services.html">Garden Design</a></li>
+          <li><a href="services.html">Snow Removal</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter footer-col">
+        <h4>Newsletter</h4>
+        <input type="email" placeholder="Your email">
+        <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:4px">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 GreenScape Landscaping.</p></div>
+</footer>
+
+<!-- ── Scripts ────────────────────────────────────────────── -->
+<script src="../assets/js/comingsoon.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

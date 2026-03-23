@@ -1,0 +1,111 @@
+﻿/* =============================================================
+   GreenScape – RTL Support
+   Full right-to-left layout compatibility for Arabic & Hebrew.
+   Apply by adding  dir="rtl"  to the <html> element.
+   ============================================================= */
+
+/* ── 1. Base Direction ──────────────────────────────────────── */
+[dir="rtl"],
+[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* ── 2. Navbar ──────────────────────────────────────────────── */
+[dir="rtl"] .navbar          { flex-direction: row-reverse; padding-inline: 40px; }
+[dir="rtl"] .nav-links        { flex-direction: row-reverse; }
+[dir="rtl"] .nav-auth         { flex-direction: row-reverse; }
+[dir="rtl"] .nav-toggle       { margin-left: 0; margin-right: auto; }
+
+/* ── 3. Hero ────────────────────────────────────────────────── */
+[dir="rtl"] .hero-content      { text-align: right; }
+[dir="rtl"] .hero-btns         { flex-direction: row-reverse; justify-content: flex-start; }
+[dir="rtl"] .page-hero-content { text-align: right; }
+
+/* ── 4. Breadcrumb ──────────────────────────────────────────── */
+[dir="rtl"] .breadcrumb        { flex-direction: row-reverse; justify-content: flex-start; }
+
+/* ── 5. Section headers ─────────────────────────────────────── */
+[dir="rtl"] .text-center       { text-align: center; }   /* keep centred headings centred */
+[dir="rtl"] .section-label     { letter-spacing: 1px; }  /* tighten tracking in Arabic */
+
+/* ── 6. Cards (Services / Blog / Team) ──────────────────────── */
+[dir="rtl"] .card-body         { text-align: right; }
+[dir="rtl"] .card-link         { flex-direction: row-reverse; }
+
+/* ── 7. Features grid ───────────────────────────────────────── */
+[dir="rtl"] .feature-item      { text-align: right; }
+
+/* ── 8. Stats bar ───────────────────────────────────────────── */
+[dir="rtl"] .stats-grid        { direction: rtl; }
+
+/* ── 9. About / Two-column layouts ─────────────────────────── */
+[dir="rtl"] .about-layout      { direction: rtl; }
+[dir="rtl"] .about-text        { text-align: right; }
+[dir="rtl"] .check-list li     { flex-direction: row-reverse; text-align: right; }
+[dir="rtl"] .check-list li::before { margin-right: 0; margin-left: 10px; }
+
+/* ── 10. Contact ────────────────────────────────────────────── */
+[dir="rtl"] .contact-layout    { direction: rtl; }
+[dir="rtl"] .contact-item      { flex-direction: row-reverse; text-align: right; }
+[dir="rtl"] .contact-item-icon { margin-right: 0; margin-left: 14px; }
+[dir="rtl"] .form-row          { direction: rtl; }
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select             { text-align: right; direction: rtl; }
+[dir="rtl"] label              { text-align: right; display: block; }
+
+/* ── 11. Testimonials ───────────────────────────────────────── */
+[dir="rtl"] .testi-author       { flex-direction: row-reverse; }
+[dir="rtl"] .testi-text         { text-align: right; }
+[dir="rtl"] .testi-quote        { right: auto; left: 20px; }
+
+/* ── 12. Blog ───────────────────────────────────────────────── */
+[dir="rtl"] .blog-meta          { flex-direction: row-reverse; }
+[dir="rtl"] .blog-card-body     { text-align: right; }
+[dir="rtl"] .blog-tag           { margin-left: 0; margin-right: auto; }
+
+/* ── 13. Pricing ────────────────────────────────────────────── */
+[dir="rtl"] .pricing-list li    { flex-direction: row-reverse; text-align: right; }
+[dir="rtl"] .plan-card          { text-align: right; }
+
+/* ── 14. Dashboard / Sidebar ────────────────────────────────── */
+[dir="rtl"] .dashboard-layout   { direction: rtl; grid-template-columns: 1fr 260px; }
+[dir="rtl"] .sidebar            { order: 2; }
+[dir="rtl"] .sidebar-nav a      { flex-direction: row-reverse; text-align: right; }
+[dir="rtl"] .sidebar-nav a svg,
+[dir="rtl"] .sidebar-nav a i    { margin-right: 0; margin-left: 10px; }
+
+/* ── 15. Footer ─────────────────────────────────────────────── */
+[dir="rtl"] .footer-grid        { direction: rtl; }
+[dir="rtl"] .footer-col         { text-align: right; }
+[dir="rtl"] .footer-brand       { text-align: right; }
+[dir="rtl"] .footer-bottom      { text-align: center; }
+
+/* ── 16. Buttons with trailing icons ────────────────────────── */
+[dir="rtl"] .btn svg,
+[dir="rtl"] .btn i              { transform: scaleX(-1); }
+
+/* ── 17. Gallery / Modal ────────────────────────────────────── */
+[dir="rtl"] .gallery-overlay    { direction: rtl; }
+
+/* ── 18. Scroll-reveal / Fade animations keep neutral ───────── */
+[dir="rtl"] .fade-up            { transform-origin: right center; }
+
+/* ── 19. Team cards ─────────────────────────────────────────── */
+[dir="rtl"] .team-card-body     { text-align: right; }
+[dir="rtl"] .team-socials       { justify-content: flex-start; }
+
+/* ── 20. Service Calculator ─────────────────────────────────── */
+[dir="rtl"] .calc-group         { text-align: right; direction: rtl; }
+[dir="rtl"] .calc-result        { text-align: right; }
+
+/* ── 21. Margin/padding logical-property overrides ──────────── */
+[dir="rtl"] .ms-auto { margin-left: unset; margin-right: auto; }
+[dir="rtl"] .me-auto { margin-right: unset; margin-left: auto; }
+
+/* ── 22. Mobile nav (RTL) ───────────────────────────────────── */
+@media (max-width: 768px) {
+  [dir="rtl"] .nav-links        { text-align: right; }
+  [dir="rtl"] .nav-links li a   { border-right: 3px solid var(--clr-primary); border-left: none; padding-right: 12px; padding-left: 0; }
+}

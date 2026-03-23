@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Transparent pricing for GreenScape landscaping services – Basic, Professional and Premium plans. No hidden fees.">
+  <title>Pricing Plans | GreenScape</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    .billing-toggle { display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:40px }
+    .billing-toggle span { font-size:14px;font-weight:600;color:var(--clr-text-muted) }
+    .toggle-switch { position:relative;width:52px;height:28px;border-radius:14px;background:var(--clr-border);cursor:pointer;transition:.3s }
+    .toggle-switch.on { background:var(--clr-primary) }
+    .toggle-switch::after { content:'';position:absolute;width:22px;height:22px;border-radius:50%;background:#fff;top:3px;left:3px;transition:.3s;box-shadow:0 2px 6px rgba(0,0,0,.2) }
+    .toggle-switch.on::after { left:27px }
+    .save-tag { background:var(--clr-accent);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:var(--radius-full) }
+    .faq-item { border-bottom:1px solid var(--clr-border);padding:20px 0 }
+    .faq-q { display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:var(--ff-head);font-weight:700;font-size:15px }
+    .faq-a { font-size:14px;color:var(--clr-text-muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height .4s,padding .3s }
+    .faq-item.open .faq-a { max-height:200px;padding-top:12px }
+    .faq-q span { font-size:22px;transition:transform .3s;color:var(--clr-primary) }
+    .faq-item.open .faq-q span { transform:rotate(45deg) }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"><a href="index.html" class="logo"> Green<span>Scape</span></a><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="pricing.html" class="active">Pricing</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li></ul><div class="nav-auth"><button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode">&#127769;</button><a href="login.html" class="btn-nav-outline">Login</a><a href="booking.html" class="btn-nav-solid">Book Now</a></div><button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button></nav>
+<div class="page-hero">
+  <div class="page-hero-content fade-up">
+    <h1>Simple, Transparent Pricing</h1>
+    <p>No hidden fees. Choose the plan that fits your property and budget.</p>
+    <nav class="breadcrumb" aria-label="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Pricing</span></nav>
+  </div>
+</div>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="text-center fade-up">
+      <span class="section-label">Our Plans</span>
+      <h2 class="section-title">Maintenance Plans</h2>
+      <p class="section-sub">All plans include licensed, insured professionals and a 100% satisfaction guarantee.</p>
+      <div class="billing-toggle"><span>Monthly</span><div class="toggle-switch" id="billingToggle" role="switch" aria-checked="false"></div><span>Annual <span class="save-tag">Save 20%</span></span></div>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card fade-up">
+        <div class="pricing-tier">Basic</div>
+        <div class="pricing-price"><span class="currency">$</span><span class="amount" data-monthly="89" data-annual="71">89</span><span class="period">/mo</span></div>
+        <p class="pricing-desc">Perfect for small residential properties up to 4,000 sq ft.</p>
+        <ul class="pricing-list">
+          <li><span class="check"></span> Bi-weekly lawn mowing</li>
+          <li><span class="check"></span> Edging &amp; cleanup</li>
+          <li><span class="check"></span> Seasonal fertilizer (2/yr)</li>
+          <li><span class="cross"></span> Garden bed care</li>
+          <li><span class="cross"></span> Aeration &amp; overseeding</li>
+          <li><span class="cross"></span> Snow removal priority</li>
+          <li><span class="cross"></span> Dedicated account manager</li>
+        </ul>
+        <a href="booking.html" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+      </div>
+      <div class="pricing-card featured fade-up">
+        <div class="pricing-badge">Most Popular</div>
+        <div class="pricing-tier">Professional</div>
+        <div class="pricing-price"><span class="currency">$</span><span class="amount" data-monthly="149" data-annual="119">149</span><span class="period">/mo</span></div>
+        <p class="pricing-desc">Ideal for medium properties 4,000–10,000 sq ft with garden beds.</p>
+        <ul class="pricing-list">
+          <li><span class="check"></span> Weekly lawn mowing</li>
+          <li><span class="check"></span> Edging, trimming &amp; cleanup</li>
+          <li><span class="check"></span> Full fertilization programme</li>
+          <li><span class="check"></span> Garden bed weeding (monthly)</li>
+          <li><span class="check"></span> Spring aeration &amp; overseeding</li>
+          <li><span class="cross"></span> Snow removal priority</li>
+          <li><span class="cross"></span> Dedicated account manager</li>
+        </ul>
+        <a href="booking.html" class="btn btn-primary" style="width:100%;justify-content:center">Get Started</a>
+      </div>
+      <div class="pricing-card fade-up">
+        <div class="pricing-tier">Premium</div>
+        <div class="pricing-price"><span class="currency">$</span><span class="amount" data-monthly="249" data-annual="199">249</span><span class="period">/mo</span></div>
+        <p class="pricing-desc">Complete care for large estates, commercial properties and discerning homeowners.</p>
+        <ul class="pricing-list">
+          <li><span class="check"></span> Weekly mowing &amp; full care</li>
+          <li><span class="check"></span> Year-round garden bed service</li>
+          <li><span class="check"></span> Custom fertilization programme</li>
+          <li><span class="check"></span> Aeration, overseeding &amp; top-dress</li>
+          <li><span class="check"></span> Priority snow removal (24hr SLA)</li>
+          <li><span class="check"></span> Dedicated account manager</li>
+          <li><span class="check"></span> Seasonal colour planting (2)</li>
+        </ul>
+        <a href="booking.html" class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+      </div>
+    </div>
+    <p class="text-center fade-up" style="margin-top:18px;font-size:13px;color:var(--clr-text-muted)">Prices shown for properties up to stated size. Need a custom quote? <a href="service-calculator.html" style="color:var(--clr-primary);font-weight:600">Use our calculator </a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div class="fade-up">
+        <span class="section-label">Add-On Services</span>
+        <h2 class="section-title" style="font-size:28px">One-Time Services</h2>
+        <p style="color:var(--clr-text-muted);margin-bottom:24px">Available standalone or as add-ons to any maintenance plan.</p>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;padding:14px 18px;background:var(--clr-surface);border-radius:var(--radius-md);border:1px solid var(--clr-border)"><span style="font-weight:600">Spring Clean-Up</span><span style="color:var(--clr-primary);font-weight:700">from </span></div>
+          <div style="display:flex;justify-content:space-between;padding:14px 18px;background:var(--clr-surface);border-radius:var(--radius-md);border:1px solid var(--clr-border)"><span style="font-weight:600">Fall Leaf Removal</span><span style="color:var(--clr-primary);font-weight:700">from </span></div>
+          <div style="display:flex;justify-content:space-between;padding:14px 18px;background:var(--clr-surface);border-radius:var(--radius-md);border:1px solid var(--clr-border)"><span style="font-weight:600">Tree &amp; Shrub Trimming</span><span style="color:var(--clr-primary);font-weight:700">from </span></div>
+          <div style="display:flex;justify-content:space-between;padding:14px 18px;background:var(--clr-surface);border-radius:var(--radius-md);border:1px solid var(--clr-border)"><span style="font-weight:600">Core Aeration</span><span style="color:var(--clr-primary);font-weight:700">from </span></div>
+          <div style="display:flex;justify-content:space-between;padding:14px 18px;background:var(--clr-surface);border-radius:var(--radius-md);border:1px solid var(--clr-border)"><span style="font-weight:600">Mulch Installation (per yard)</span><span style="color:var(--clr-primary);font-weight:700">from </span></div>
+          <div style="display:flex;justify-content:space-between;padding:14px 18px;background:var(--clr-surface);border-radius:var(--radius-md);border:1px solid var(--clr-border)"><span style="font-weight:600">Irrigation Winterization</span><span style="color:var(--clr-primary);font-weight:700">from </span></div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title" style="font-size:28px">Common Questions</h2>
+        <div class="faq-item"><div class="faq-q">Can I cancel my plan at any time?<span>+</span></div><div class="faq-a">Yes — monthly plans can be cancelled anytime with 30 days notice. Annual plans include a pro-rated refund after 3 months.</div></div>
+        <div class="faq-item"><div class="faq-q">What if I'm not satisfied?<span>+</span></div><div class="faq-a">We offer a 100% satisfaction guarantee. If you're not happy with a visit, we'll return within 48 hours to re-do the work at no charge.</div></div>
+        <div class="faq-item"><div class="faq-q">Are your teams insured and certified?<span>+</span></div><div class="faq-a">All crew members are fully insured and background-checked. We carry  in general liability insurance. Our arborists are ISA-certified.</div></div>
+        <div class="faq-item"><div class="faq-q">Do you work in my area?<span>+</span></div><div class="faq-a">We serve the Greater New York area including Nassau and Suffolk counties. Enter your zip code during booking to confirm coverage.</div></div>
+        <div class="faq-item"><div class="faq-q">How does billing work?<span>+</span></div><div class="faq-a">Monthly plans are billed automatically on the 1st of each month. Annual plans are billed upfront with a 20% discount applied.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="cta-banner fade-up">
+      <h2>Not Sure Which Plan Is Right For You?</h2>
+      <p>Use our instant calculator to get a price estimate based on your property size and needs.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="service-calculator.html" class="btn btn-primary">Try the Price Calculator</a>
+        <a href="contact.html" class="btn btn-white">Talk to Our Team</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div style="border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px"><p style="color:#9ec4b0;font-size:13px"> 2026 GreenScape Landscaping.</p><div style="display:flex;gap:16px"><a href="about.html" style="color:#9ec4b0;font-size:13px">About</a><a href="services.html" style="color:#9ec4b0;font-size:13px">Services</a><a href="contact.html" style="color:#9ec4b0;font-size:13px">Contact</a></div></div></div></footer>
+<script src="../assets/js/main.js"></script>
+<script>
+  // Billing toggle
+  const toggle = document.getElementById('billingToggle');
+  let annual = false;
+  toggle.addEventListener('click', () => {
+    annual = !annual;
+    toggle.classList.toggle('on', annual);
+    toggle.setAttribute('aria-checked', annual);
+    document.querySelectorAll('.amount').forEach(el => {
+      el.textContent = annual ? el.dataset.annual : el.dataset.monthly;
+    });
+    document.querySelectorAll('.period').forEach(el => { el.textContent = annual ? '/mo (billed annually)' : '/mo'; });
+  });
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const open = item.classList.toggle('open');
+      document.querySelectorAll('.faq-item').forEach(other => { if (other !== item) other.classList.remove('open'); });
+    });
+  });
+</script>
+</body>
+</html>
+

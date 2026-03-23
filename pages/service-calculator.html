@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="Calculate the estimated cost of GreenScape landscaping services instantly based on your property size and requirements.">
+  <title>Service Price Calculator | GreenScape</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    .calc-layout { display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start }
+    .calc-card { background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:36px }
+    .calc-card h2 { font-size:22px;margin-bottom:6px }
+    .calc-card p { color:var(--clr-text-muted);font-size:14px;margin-bottom:28px }
+    .calc-section { margin-bottom:28px }
+    .calc-section-title { font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--clr-text-muted);margin-bottom:14px }
+    .range-row { display:flex;align-items:center;justify-content:space-between;margin-bottom:8px }
+    .range-row label { font-weight:600;font-size:14px }
+    .range-value { font-size:16px;font-weight:800;color:var(--clr-primary) }
+    input[type=range] { width:100%;accent-color:var(--clr-primary);height:6px;border-radius:3px;margin-bottom:4px }
+    .range-hints { display:flex;justify-content:space-between;font-size:11px;color:var(--clr-text-muted) }
+    .service-checks { display:grid;grid-template-columns:1fr 1fr;gap:10px }
+    .service-check input[type=checkbox] { accent-color:var(--clr-primary);width:16px;height:16px }
+    .service-check { display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer;padding:10px 14px;border:1px solid var(--clr-border);border-radius:var(--radius-sm);transition:.2s }
+    .service-check:has(input:checked) { border-color:var(--clr-primary);background:var(--clr-primary-light) }
+    .freq-options { display:flex;gap:10px }
+    .freq-opt { flex:1;text-align:center;padding:10px;border:2px solid var(--clr-border);border-radius:var(--radius-sm);cursor:pointer;font-size:13px;font-weight:600;transition:.2s }
+    .freq-opt.active { border-color:var(--clr-primary);background:var(--clr-primary-light);color:var(--clr-primary) }
+    .result-card { background:var(--clr-primary);color:#fff;border-radius:var(--radius-lg);padding:32px;position:sticky;top:90px }
+    .result-card h3 { font-size:16px;font-weight:700;margin-bottom:20px;opacity:.85 }
+    .result-total { font-size:52px;font-weight:900;font-family:var(--ff-head);line-height:1 }
+    .result-period { font-size:14px;opacity:.75;margin-bottom:24px }
+    .result-breakdown { display:flex;flex-direction:column;gap:10px;margin-bottom:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2) }
+    .result-row { display:flex;justify-content:space-between;font-size:13px }
+    .result-row span:first-child { opacity:.8 }
+    .result-row span:last-child { font-weight:700 }
+    .result-note { font-size:12px;opacity:.7;line-height:1.6;margin-bottom:20px }
+    @media(max-width:900px){.calc-layout{grid-template-columns:1fr}.result-card{position:static}}
+    @media(max-width:500px){.service-checks{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"><a href="index.html" class="logo"> Green<span>Scape</span></a><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li></ul><div class="nav-auth"><button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode">&#127769;</button><a href="login.html" class="btn-nav-outline">Login</a><a href="booking.html" class="btn-nav-solid">Book Now</a></div><button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button></nav>
+<div class="page-hero">
+  <div class="page-hero-content fade-up">
+    <h1>Price Calculator</h1>
+    <p>Get an instant estimate for your landscaping needs — no account required.</p>
+    <nav class="breadcrumb" aria-label="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="services.html">Services</a><span class="sep">/</span><span>Calculator</span></nav>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="calc-layout">
+      <div class="calc-card fade-up">
+        <h2>Customise Your Service</h2>
+        <p>Adjust the sliders and options below to build your quote. Prices are starting estimates — final pricing confirmed after on-site assessment.</p>
+        <div class="calc-section">
+          <div class="calc-section-title">Property Size</div>
+          <div class="range-row"><label for="sizeRange">Lawn Area</label><span class="range-value" id="sizeVal">4,000 sq ft</span></div>
+          <input type="range" id="sizeRange" min="1000" max="30000" step="500" value="4000">
+          <div class="range-hints"><span>1,000 sq ft</span><span>30,000 sq ft</span></div>
+        </div>
+        <div class="calc-section">
+          <div class="calc-section-title">Services Required</div>
+          <div class="service-checks">
+            <label class="service-check"><input type="checkbox" checked data-price="70" data-name="Lawn Mowing">  Lawn Mowing</label>
+            <label class="service-check"><input type="checkbox" data-price="45" data-name="Edging &amp; Trimming">  Edging &amp; Trimming</label>
+            <label class="service-check"><input type="checkbox" data-price="60" data-name="Fertilization">  Fertilization</label>
+            <label class="service-check"><input type="checkbox" data-price="55" data-name="Weed Control">  Weed Control</label>
+            <label class="service-check"><input type="checkbox" data-price="40" data-name="Leaf Removal">  Leaf Removal</label>
+            <label class="service-check"><input type="checkbox" data-price="80" data-name="Garden Beds">  Garden Beds</label>
+            <label class="service-check"><input type="checkbox" data-price="120" data-name="Tree Trimming">  Tree Trimming</label>
+            <label class="service-check"><input type="checkbox" data-price="90" data-name="Aeration">  Aeration</label>
+          </div>
+        </div>
+        <div class="calc-section">
+          <div class="calc-section-title">Visit Frequency</div>
+          <div class="freq-options">
+            <div class="freq-opt active" data-mult="1" data-freq="Weekly">Weekly</div>
+            <div class="freq-opt" data-mult="0.65" data-freq="Bi-Weekly">Bi-Weekly</div>
+            <div class="freq-opt" data-mult="0.45" data-freq="Monthly">Monthly</div>
+          </div>
+        </div>
+        <div class="calc-section">
+          <div class="calc-section-title">Garden Beds</div>
+          <div class="range-row"><label for="bedRange">Number of Beds</label><span class="range-value" id="bedVal">2</span></div>
+          <input type="range" id="bedRange" min="0" max="20" value="2">
+          <div class="range-hints"><span>None</span><span>20 beds</span></div>
+        </div>
+        <div style="margin-top:8px;padding:16px;background:var(--clr-bg);border-radius:var(--radius-md);font-size:13px;color:var(--clr-text-muted)">
+           <strong>Looking for a fixed plan?</strong> Check our <a href="pricing.html" style="color:var(--clr-primary);font-weight:600">maintenance plans</a> which offer the best value for regular care.
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="result-card" id="resultCard">
+          <h3>YOUR ESTIMATED QUOTE</h3>
+          <div class="result-total" id="totalPrice"></div>
+          <div class="result-period" id="freqLabel">per week</div>
+          <div class="result-breakdown" id="breakdown"></div>
+          <p class="result-note">* Estimate only. Final price confirmed after free on-site assessment. No obligation.</p>
+          <a href="booking.html" class="btn" style="background:#fff;color:var(--clr-primary);width:100%;justify-content:center;font-weight:700">Book Free Assessment</a>
+          <a href="contact.html" class="btn" style="background:transparent;color:#fff;border:1px solid rgba(255,255,255,.4);width:100%;justify-content:center;margin-top:10px">Ask a Question</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div style="border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px"><p style="color:#9ec4b0;font-size:13px"> 2026 GreenScape Landscaping.</p><div style="display:flex;gap:16px"><a href="about.html" style="color:#9ec4b0;font-size:13px">About</a><a href="pricing.html" style="color:#9ec4b0;font-size:13px">Pricing</a><a href="contact.html" style="color:#9ec4b0;font-size:13px">Contact</a></div></div></div></footer>
+<script src="../assets/js/main.js"></script>
+<script>
+  const sizeRange = document.getElementById('sizeRange');
+  const bedRange = document.getElementById('bedRange');
+  const sizeVal = document.getElementById('sizeVal');
+  const bedVal = document.getElementById('bedVal');
+  const totalEl = document.getElementById('totalPrice');
+  const freqLabel = document.getElementById('freqLabel');
+  const breakdownEl = document.getElementById('breakdown');
+
+  let freqMult = 1;
+  let freqText = 'per week';
+
+  function fmt(n) { return '$' + Math.round(n).toLocaleString(); }
+
+  function calcPrice() {
+    const sqft = parseInt(sizeRange.value);
+    const sizeFactor = 1 + (sqft - 4000) / 30000;
+    const beds = parseInt(bedRange.value);
+    let items = [];
+    let total = 0;
+    document.querySelectorAll('.service-check input:checked').forEach(cb => {
+      const base = parseFloat(cb.dataset.price) * sizeFactor;
+      items.push({ name: cb.dataset.name, price: base });
+      total += base;
+    });
+    if (beds > 0) {
+      const bedPrice = beds * 12 * sizeFactor;
+      items.push({ name: 'Garden Beds (' + beds + ')', price: bedPrice });
+      total += bedPrice;
+    }
+    total *= freqMult;
+    totalEl.textContent = fmt(total);
+    freqLabel.textContent = freqText;
+    breakdownEl.innerHTML = items.map(i => '<div class="result-row"><span>' + i.name + '</span><span>' + fmt(i.price * freqMult) + '</span></div>').join('');
+  }
+
+  sizeRange.addEventListener('input', () => { sizeVal.textContent = parseInt(sizeRange.value).toLocaleString() + ' sq ft'; calcPrice(); });
+  bedRange.addEventListener('input', () => { bedVal.textContent = bedRange.value; calcPrice(); });
+  document.querySelectorAll('.service-check input').forEach(cb => cb.addEventListener('change', calcPrice));
+  document.querySelectorAll('.freq-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('.freq-opt').forEach(o => o.classList.remove('active'));
+      opt.classList.add('active');
+      freqMult = parseFloat(opt.dataset.mult);
+      freqText = 'per visit (' + opt.dataset.freq.toLowerCase() + ')';
+      calcPrice();
+    });
+  });
+  calcPrice();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="description" content="See what hundreds of satisfied GreenScape customers say about our landscaping and lawn care services.">
+  <title>Customer Testimonials | GreenScape</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <style>
+    .testi-card { background:var(--clr-surface);border:1px solid var(--clr-border);border-radius:var(--radius-lg);padding:28px;display:flex;flex-direction:column;gap:16px }
+    .stars { color:#f59e0b;font-size:18px;letter-spacing:2px }
+    .testi-body { font-size:15px;line-height:1.8;color:var(--clr-text);flex:1 }
+    .testi-body::before { content:'\201C';font-size:40px;line-height:0;vertical-align:-14px;color:var(--clr-primary);margin-right:4px }
+    .testi-author { display:flex;align-items:center;gap:14px }
+    .testi-avatar { width:48px;height:48px;border-radius:50%;object-fit:cover }
+    .testi-meta strong { display:block;font-size:14px;font-weight:700 }
+    .testi-meta span { font-size:12px;color:var(--clr-text-muted) }
+    .review-bar { display:flex;align-items:center;gap:12px;margin-bottom:8px }
+    .review-label { width:100px;font-size:13px;font-weight:600 }
+    .bar-track { flex:1;height:8px;background:var(--clr-border);border-radius:4px;overflow:hidden }
+    .bar-fill { height:100%;background:var(--clr-primary);border-radius:4px }
+    .platform-badge { display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:var(--radius-full);font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase }
+    .badge-g { background:#e8f5e9;color:#2e7d32 }
+    .badge-y { background:#fff8e1;color:#f57f17 }
+    .badge-f { background:#e3f2fd;color:#1565c0 }
+    .testi-hero-stats { display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;background:var(--clr-primary);border-radius:var(--radius-lg);padding:36px;color:#fff;margin-bottom:48px }
+    .testi-stat-num { font-size:36px;font-weight:800;font-family:var(--ff-head) }
+    .testi-stat-lbl { font-size:13px;opacity:.85 }
+  </style>
+</head>
+<body>
+<nav class="navbar" id="navbar"><a href="index.html" class="logo"> Green<span>Scape</span></a><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="blog.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="dashboard.html">Dashboard</a></li></ul><div class="nav-auth"><button class="dark-toggle" onclick="toggleDarkMode()" title="Toggle dark mode">&#127769;</button><a href="login.html" class="btn-nav-outline">Login</a><a href="booking.html" class="btn-nav-solid">Book Now</a></div><button class="nav-toggle" id="navToggle" aria-label="Open menu"><span></span><span></span><span></span></button></nav>
+<div class="page-hero">
+  <div class="page-hero-content fade-up">
+    <h1>What Our Clients Say</h1>
+    <p>Over 500 five-star reviews from happy homeowners and businesses across the region.</p>
+    <nav class="breadcrumb" aria-label="breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span>Testimonials</span></nav>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="testi-hero-stats fade-up">
+      <div><div class="testi-stat-num" data-target="4.9">0</div><div class="testi-stat-lbl">Average Rating</div></div>
+      <div><div class="testi-stat-num" data-target="500">0</div><div class="testi-stat-lbl">Reviews</div></div>
+      <div><div class="testi-stat-num" data-target="98">0</div><div class="testi-stat-lbl">% Recommend Us</div></div>
+      <div><div class="testi-stat-num" data-target="12">0</div><div class="testi-stat-lbl">Years Serving</div></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start">
+      <div class="fade-up">
+        <h3 style="margin-bottom:20px">Rating Breakdown</h3>
+        <div class="review-bar"><span class="review-label">5 Stars</span><div class="bar-track"><div class="bar-fill" style="width:86%"></div></div><span style="font-size:13px;font-weight:600;color:var(--clr-text-muted)">86%</span></div>
+        <div class="review-bar"><span class="review-label">4 Stars</span><div class="bar-track"><div class="bar-fill" style="width:10%"></div></div><span style="font-size:13px;font-weight:600;color:var(--clr-text-muted)">10%</span></div>
+        <div class="review-bar"><span class="review-label">3 Stars</span><div class="bar-track"><div class="bar-fill" style="width:3%"></div></div><span style="font-size:13px;font-weight:600;color:var(--clr-text-muted)">3%</span></div>
+        <div class="review-bar"><span class="review-label">2 Stars</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span style="font-size:13px;font-weight:600;color:var(--clr-text-muted)">1%</span></div>
+        <div class="review-bar"><span class="review-label">1 Star</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span style="font-size:13px;font-weight:600;color:var(--clr-text-muted)">0%</span></div>
+        <div style="margin-top:28px;padding:20px;background:var(--clr-surface);border-radius:var(--radius-md);border:1px solid var(--clr-border)">
+          <p style="font-size:13px;color:var(--clr-text-muted);margin-bottom:12px">Reviews verified on:</p>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span class="platform-badge badge-g"> Google — 4.9/5 (312)</span>
+            <span class="platform-badge badge-y"> Yelp — 4.8/5 (124)</span>
+            <span class="platform-badge badge-f"> Facebook — 4.9/5 (84)</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="testimonials-grid" style="grid-template-columns:1fr 1fr">
+          <div class="testi-card fade-up"><div class="stars"></div><p class="testi-body">GreenScape transformed our backyard from a mud pit into a stunning garden retreat. The team was professional, punctual, and incredibly skilled. We get compliments from the neighbours every week!</p><div class="testi-author"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Sarah M." class="testi-avatar"><div class="testi-meta"><strong>Sarah M.</strong><span>Homeowner, Long Island</span></div></div></div>
+          <div class="testi-card fade-up"><div class="stars"></div><p class="testi-body">We've used GreenScape for 4 years and they consistently exceed expectations. My lawn looks like a golf course all season long. Their attention to detail is unmatched — worth every penny.</p><div class="testi-author"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="James R." class="testi-avatar"><div class="testi-meta"><strong>James R.</strong><span>Professional Plan, 4 years</span></div></div></div>
+          <div class="testi-card fade-up"><div class="stars"></div><p class="testi-body">After getting quotes from 5 companies, GreenScape offered the best value and the most detailed proposal. They showed up on time, communicated clearly, and did exceptional work. Highly recommended!</p><div class="testi-author"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Linda T." class="testi-avatar"><div class="testi-meta"><strong>Linda T.</strong><span>Premium Plan, 2 years</span></div></div></div>
+          <div class="testi-card fade-up"><div class="stars"></div><p class="testi-body">The patio installation was flawless — from design consultation to final cleanup. Our outdoor space is now our favourite room in the house. The project finished on time and on budget. 10/10.</p><div class="testi-author"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Marcus B." class="testi-avatar"><div class="testi-meta"><strong>Marcus B.</strong><span>Landscape Design Client</span></div></div></div>
+          <div class="testi-card fade-up"><div class="stars"></div><p class="testi-body">As a commercial property manager I need reliable, professional vendors. GreenScape manages 3 of our properties and the consistency across all sites is impressive. They're a true partner.</p><div class="testi-author"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80" alt="David K." class="testi-avatar"><div class="testi-meta"><strong>David K.</strong><span>Commercial Client</span></div></div></div>
+          <div class="testi-card fade-up"><div class="stars"></div><p class="testi-body">I was nervous about the cost of a full garden redesign but the team walked me through every option and found a solution that fit my budget beautifully. The result was even better than I imagined!</p><div class="testi-author"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80" alt="Priya S." class="testi-avatar"><div class="testi-meta"><strong>Priya S.</strong><span>Garden Redesign Client</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <div class="container text-center">
+    <h2 class="section-title fade-up" style="color:#fff">Ready to Join Our Happy Clients?</h2>
+    <p class="section-sub fade-up" style="color:#a8d5b5">Book your free consultation today and see the GreenScape difference.</p>
+    <a href="booking.html" class="btn btn-primary fade-up">Book Free Consultation</a>
+  </div>
+</section>
+
+<footer class="footer"><div class="container"><div style="border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px"><p style="color:#9ec4b0;font-size:13px"> 2026 GreenScape Landscaping.</p><div style="display:flex;gap:16px"><a href="about.html" style="color:#9ec4b0;font-size:13px">About</a><a href="services.html" style="color:#9ec4b0;font-size:13px">Services</a><a href="contact.html" style="color:#9ec4b0;font-size:13px">Contact</a></div></div></div></footer>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
+
