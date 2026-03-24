@@ -299,7 +299,7 @@
       </div>
 
       <div class="blog-card fade-up">
-        <img class="blog-card-img" src="https://images.unsplash.com/photo-1549298222-1c31e8915347?w=600&q=80" alt="Water Saving">
+        <img class="blog-card-img" src="https://plus.unsplash.com/premium_photo-1661845609789-635c5e35c4ba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c21hcnQlMjBpcnJpZ2F0aW9uJTIwc3lzdGVtJTIwY2xlYXIlMjBhbmQlMjBuZWF0JTIwaW1hZ2VzfGVufDB8fDB8fHww" alt="Water Saving">
         <div class="blog-card-body">
           <span class="blog-tag">Eco Tips</span>
           <h3>Smart Irrigation: Save 40% Water Without Sacrificing Beauty</h3>
@@ -319,100 +319,6 @@
     </div>
   </div>
 </section>
-
-<!-- ══ PAGE PREVIEWS (404 & Coming Soon) ══════════════════ -->
-<section class="section section-alt" id="page-previews">
-  <div class="container">
-    <div class="text-center fade-up">
-      <span class="section-label">Site Pages</span>
-      <h2 class="section-title">Special Pages</h2>
-      <p class="section-sub">Preview our custom error and launch pages without leaving this site.</p>
-    </div>
-    <div class="cards-grid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr));margin-top:32px">
-
-      <!-- 404 Preview Card -->
-      <div class="card fade-up" style="cursor:pointer" onclick="openPageModal('pages/404.html','404 – Page Not Found')" role="button" tabindex="0" aria-label="Preview 404 page">
-        <div class="card-img-wrap" style="background:linear-gradient(135deg,#1a5c38,#3aa76d);height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden">
-          <div style="text-align:center;color:#fff;user-select:none">
-            <div style="font-family:var(--ff-head);font-size:72px;font-weight:800;line-height:1;opacity:.9">404</div>
-            <div style="font-size:14px;opacity:.7;margin-top:4px">Page Not Found</div>
-          </div>
-        </div>
-        <div class="card-body">
-          <h3>404 Error Page</h3>
-          <p>Custom branded error page shown when a visitor lands on a broken or missing URL — with quick navigation back.</p>
-          <span class="card-link">Preview Page →</span>
-        </div>
-      </div>
-
-      <!-- Coming Soon Preview Card -->
-      <!-- <div class="card fade-up" style="cursor:pointer" onclick="openPageModal('pages/comingsoon.html','Coming Soon')" role="button" tabindex="0" aria-label="Preview Coming Soon page">
-        <div class="card-img-wrap" style="background:linear-gradient(135deg,#0d3d21,#2e8b57);height:180px;display:flex;align-items:center;justify-content:center;overflow:hidden">
-          <div style="text-align:center;color:#fff;user-select:none">
-            <div style="font-size:48px;line-height:1">🌿</div>
-            <div style="font-family:var(--ff-head);font-size:22px;font-weight:800;margin-top:8px">Coming Soon</div>
-            <div style="font-size:13px;opacity:.7;margin-top:4px">Pre-launch &amp; maintenance</div>
-          </div>
-        </div>
-        <div class="card-body">
-          <h3>Coming Soon Page</h3>
-          <p>Pre-launch or maintenance holding page with a live countdown timer, email subscription and social links.</p>
-          <span class="card-link">Preview Page →</span>
-        </div>
-      </div>
-
-    </div>
-  </div> -->
-</section>
-
-<!-- ══ PAGE PREVIEW MODAL ══════════════════════════════════ -->
-<div id="page-modal" style="display:none;position:fixed;inset:0;z-index:9000;align-items:center;justify-content:center" role="dialog" aria-modal="true" aria-labelledby="page-modal-title">
-  <!-- Backdrop -->
-  <div id="page-modal-backdrop" onclick="closePageModal()" style="position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(4px)"></div>
-  <!-- Panel -->
-  <div style="position:relative;z-index:1;width:min(1100px,96vw);height:min(88vh,780px);background:#fff;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(0,0,0,.4)">
-    <!-- Modal header -->
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--clr-primary-dk);flex-shrink:0">
-      <span id="page-modal-title" style="font-family:var(--ff-head);font-weight:700;font-size:15px;color:#fff"></span>
-      <div style="display:flex;align-items:center;gap:10px">
-        <a id="page-modal-open" href="#" target="_blank" style="font-family:var(--ff-head);font-size:12px;font-weight:600;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.3);padding:5px 12px;border-radius:6px;white-space:nowrap">Open in new tab ↗</a>
-        <button onclick="closePageModal()" aria-label="Close preview" style="background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center">&times;</button>
-      </div>
-    </div>
-    <!-- iframe -->
-    <iframe id="page-modal-frame" src="" title="Page preview" style="flex:1;border:none;width:100%"></iframe>
-  </div>
-</div>
-
-<script>
-function openPageModal(page, title) {
-  var modal  = document.getElementById('page-modal');
-  var frame  = document.getElementById('page-modal-frame');
-  var label  = document.getElementById('page-modal-title');
-  var link   = document.getElementById('page-modal-open');
-  frame.src  = page;
-  label.textContent = title;
-  link.href  = page;
-  modal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-function closePageModal() {
-  var modal  = document.getElementById('page-modal');
-  var frame  = document.getElementById('page-modal-frame');
-  modal.style.display = 'none';
-  frame.src  = '';
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closePageModal();
-});
-// Keyboard accessibility for cards
-document.querySelectorAll('#page-previews [role="button"]').forEach(function(el) {
-  el.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') el.click();
-  });
-});
-</script>
 
 <!-- ══ FOOTER ══════════════════════════════════════════════ -->
 <footer class="footer">

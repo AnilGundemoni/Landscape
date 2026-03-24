@@ -219,15 +219,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-//  Hero parallax scroll 
-(function initParallax() {
-  const heroBg = document.querySelector('.hero-bg');
-  if (!heroBg) return;
-  window.addEventListener('scroll', () => {
-    const scrolled = window.scrollY;
-    heroBg.style.transform = `translateY(${scrolled * 0.35}px) scale(1.1)`;
-  }, { passive: true });
-})();
+// Hero parallax disabled — background-attachment:fixed handles it in CSS;
 
 //  Typed text effect for hero h1 em 
 (function initTyped() {
@@ -235,15 +227,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   if (!el) return;
   const phrases = el.dataset.typed.split('|');
   let pi = 0, ci = 0, deleting = false;
+  // Reserve space: use non-breaking space when empty so line doesn't collapse
+  function setText(t) {
+    el.textContent = t || '\u00A0';
+  }
   function tick() {
     const phrase = phrases[pi];
     if (!deleting) {
-      el.textContent = phrase.slice(0, ci + 1);
+      setText(phrase.slice(0, ci + 1));
       ci++;
       if (ci === phrase.length) { deleting = true; setTimeout(tick, 1800); return; }
     } else {
-      el.textContent = phrase.slice(0, ci - 1);
       ci--;
+      setText(phrase.slice(0, ci));
       if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
     }
     setTimeout(tick, deleting ? 55 : 90);
