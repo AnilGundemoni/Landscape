@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -37,7 +37,7 @@
 <body>
 <div class="auth-page">
   <div class="auth-visual">
-    <a href="index.html" class="auth-logo-overlay"> Green<span>Scape</span></a>
+    <a href="../index.html" class="auth-logo-overlay"> Green<span>Scape</span></a>
     <div class="auth-visual-content">
       <h2>Join 500+ Happy Homeowners</h2>
       <p>Create your free account and get instant access to booking, service history, and exclusive member discounts.</p>
@@ -137,7 +137,7 @@
     localStorage.setItem('gs_users', JSON.stringify(users));
     localStorage.setItem('gs_session', JSON.stringify({ email: email, name: name }));
 
-    showMsg('Account created! Welcome, ' + first + '. Redirecting…', true);
+    showMsg('Account created! Welcome, ' + first + '. Redirecting�', true);
     setTimeout(function () { window.location.href = 'index.html'; }, 900);
   });
 })();
