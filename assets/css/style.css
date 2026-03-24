@@ -1473,7 +1473,16 @@ tbody tr:hover td { background: var(--clr-surface-2); }
   .nav-links a { padding: 12px 24px; border-radius: 0; }
   .nav-auth .btn-nav-outline { display: none; }
   .nav-toggle { display: flex; }
-  .dark-toggle { display: none; }
+  .dark-toggle {
+    display: flex;
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
 
   .hero-stats { display: none; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
